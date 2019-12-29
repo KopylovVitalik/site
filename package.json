@@ -1,0 +1,64 @@
+{
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "animejs": "^3.1.0",
+    "bulma": "^0.8.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.17.11",
+    "gatsby-image": "^2.2.31",
+    "gatsby-plugin-layout": "^1.1.18",
+    "gatsby-plugin-manifest": "^2.2.27",
+    "gatsby-plugin-offline": "^3.0.19",
+    "gatsby-plugin-react-helmet": "^3.1.14",
+    "gatsby-plugin-sass": "^2.1.23",
+    "gatsby-plugin-sharp": "^2.2.37",
+    "gatsby-plugin-transition-link": "^1.16.2",
+    "gatsby-plugin-transitions": "^2.1.5",
+    "gatsby-remark-images": "^3.1.33",
+    "gatsby-remark-relative-images": "^0.2.3",
+    "gatsby-source-contentful": "^2.1.62",
+    "gatsby-source-filesystem": "^2.1.36",
+    "gatsby-transformer-remark": "^2.6.35",
+    "gatsby-transformer-sharp": "^2.3.3",
+    "gsap": "^3.0.1",
+    "lodash": "^4.17.15",
+    "mdbreact": "^4.22.1",
+    "node-sass": "^4.13.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-helmet": "^5.2.1",
+    "react-spring": "^8.0.27",
+    "react-three-fiber": "^3.0.16",
+    "three": "0.111.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.0.1",
+    "gh-pages": "^2.1.1",
+    "prettier": "^1.19.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "env-cmd -f .env.development gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
