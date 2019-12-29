@@ -68,7 +68,12 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link
+        href="https://fonts.googleapis.com/css?family=Bitter:700|Raleway&display=swap"
+        rel="stylesheet"
+      />
+    </Helmet>
   )
 }
 

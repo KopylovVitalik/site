@@ -25,6 +25,7 @@
     "gatsby-transformer-remark": "^2.6.35",
     "gatsby-transformer-sharp": "^2.3.3",
     "gsap": "^3.0.1",
+    "isotope-layout": "^3.0.6",
     "lodash": "^4.17.15",
     "mdbreact": "^4.22.1",
     "node-sass": "^4.13.0",
@@ -32,7 +33,6 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
-    "react-spring": "^8.0.27",
     "react-three-fiber": "^3.0.16",
     "three": "0.111.0"
   },

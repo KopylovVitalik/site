@@ -1,32 +1,25 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+const Blog = props => (
+  <>
+  <section className="hero is-success is-fullheight-with-navbar is-bold">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title">{props.data.contentfulBlogPost.title}</h1>
+        </div>
+      </div>
+    </section>
+  </>
+)
+
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date
-      }
-      html
+    contentfulBlogPost(slug: { eq: $slug }) {
+      title
+      publishedDate
     }
   }
 `
-
-const Blog = props => (
-  <>
-    <div className="container">
-      <div className="notification">
-        <h2>{props.data.markdownRemark.frontmatter.title}</h2>
-        <p>{props.data.markdownRemark.frontmatter.date}</p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: props.data.markdownRemark.html,
-          }}
-        ></div>
-      </div>
-    </div>
-  </>
-)
 
 export default Blog

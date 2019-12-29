@@ -9,7 +9,7 @@ import headerStyles from "./header.module.scss"
 const Header = ({ siteTitle }) => (
   <header className={headerStyles.header}>
     <nav
-      className="navbar has-shadow is-spaced"
+      className="navbar has-shadow is-spaced is-transparent"
       role="navigation"
       aria-label="main navigation"
     >
@@ -26,10 +26,8 @@ const Header = ({ siteTitle }) => (
         </div>
         <div className="navbar-end">
           <MenuLink to="/">Home</MenuLink>
-          <MenuLink to="/blog/">Blogs</MenuLink>
-          <MenuLink to="/contentful-blog/">Contentful Blogs</MenuLink>
+          <MenuLink to="/blog/">Blog</MenuLink>
           <MenuLink to="/about/">About</MenuLink>
-          <MenuLink to="/contact-us/">Contacts</MenuLink>
           <MenuLink to="/projects/">Projects</MenuLink>
         </div>
       </div>

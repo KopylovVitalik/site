@@ -1,0 +1,21 @@
+.projects
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -15px
+  &__item
+    // flex: 0 0 33.333%
+    // padding: 0 15px 30px
+    // max-width: 33.333%
+    width: 33.333%
+    padding: 0 15px 30px
+
+.controllers
+  display: grid
+  grid-template-columns: repeat(6 ,minmax(10em, max-content))
+  margin-bottom: 24px
+
+.controller
+  .btn
+    width: 100%
+  &:not(:last-child)
+    margin-right: 16px

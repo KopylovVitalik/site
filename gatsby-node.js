@@ -1,6 +1,6 @@
 const path = require("path")
 
-module.exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === "MarkdownRemark") {
@@ -10,50 +10,52 @@ module.exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-module.exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogTemplate = path.resolve(`src/templates/blog.js`)
+  const projectTemplate = path.resolve(`src/templates/project.js`)
   const res = await graphql(`
     query {
-      allMarkdownRemark {
+      allContentfulProject {
         edges {
           node {
-            fields {
-              slug
+            href
+            slug
+            tag
+            image {
+              fluid {
+                src
+              }
             }
+            name
           }
         }
       }
     }
   `)
-  res.data.allMarkdownRemark.edges.forEach(element => {
+  res.data.allContentfulProject.edges.forEach(element => {
     createPage({
-      component: blogTemplate,
-      path: `/blog/${element.node.fields.slug}`,
+      component: projectTemplate,
+      path: `/projects/${element.node.slug}`,
       context: {
-        slug: element.node.fields.slug,
+        slug: element.node.slug,
       },
     })
   })
-}
 
-module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-
-  const blogTemplate = path.resolve(`src/templates/contentful-blog.js`)
-  const res = await graphql(`
+  const blogTemplate = path.resolve(`src/templates/blog.js`)
+  const blog = await graphql(`
     query {
       allContentfulBlogPost {
         edges {
           node {
-              slug
+            slug
           }
         }
       }
     }
   `)
-  res.data.allContentfulBlogPost.edges.forEach(element => {
+  blog.data.allContentfulBlogPost.edges.forEach(element => {
     createPage({
       component: blogTemplate,
       path: `/blog/${element.node.slug}`,
