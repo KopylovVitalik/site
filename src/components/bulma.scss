@@ -1,4 +1,7 @@
 @charset "utf-8";
 // If need, change your variables before importing Bulma
+$navbar-box-shadow-color: blue;
+$navbar-box-shadow-size:	0 2px 0 0;
+$footer-background-color: red;
 $footer-padding: 2rem;
 @import "~bulma/bulma.sass";

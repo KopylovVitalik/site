@@ -31,6 +31,7 @@ function SEO({ description, lang, meta, title }) {
     <Helmet
       htmlAttributes={{
         lang,
+        class: "has-navbar-fixed-top"
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
@@ -69,10 +70,11 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
-      <link
+      {/* <link
         href="https://fonts.googleapis.com/css?family=Bitter:700|Raleway&display=swap"
         rel="stylesheet"
-      />
+      /> */}
+      <script defer="" src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     </Helmet>
   )
 }

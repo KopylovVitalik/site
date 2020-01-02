@@ -66,7 +66,7 @@ const ContentfulProject = ({ data }) => {
     <>
       <SEO title="About" />
       <section className="hero is-fullheight-with-navbar is-bold">
-        <div className="hero-body">
+        <div className="hero-body hero-body--projects">
           <div className="container">
             <div className="controllers">
               {controllers.map(({ title, filter, modifier }, i) => (
@@ -84,7 +84,6 @@ const ContentfulProject = ({ data }) => {
             <div className="projects">
               {data.allContentfulProject.edges.map((project, i) => {
                 const category = project.node.category
-                // const isShow = category === projects || projects === "all"
                 return (
 
                   <div className={`projects__item ${category}`} key={i}>
@@ -107,7 +106,7 @@ const ContentfulProject = ({ data }) => {
                         <div className="project-card__content">
                           <div className="content">
                             <MenuLink
-                              className="button is-success is-outlined"
+                              className="button is-success is-outlined is-bold"
                               to={`/projects/${project.node.slug}`}
                               direction="top"
                             >

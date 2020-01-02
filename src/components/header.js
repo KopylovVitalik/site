@@ -9,7 +9,7 @@ import headerStyles from "./header.module.scss"
 const Header = ({ siteTitle }) => (
   <header className={headerStyles.header}>
     <nav
-      className="navbar has-shadow is-spaced is-transparent"
+      className="navbar has-shadow is-transparent is-fixed-top"
       role="navigation"
       aria-label="main navigation"
     >
