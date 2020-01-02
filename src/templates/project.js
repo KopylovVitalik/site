@@ -41,7 +41,7 @@ const Project = props => {
   return (
     <>
       <section className="hero is-success is-fullheight-with-navbar is-bold">
-        <div className="hero-body">
+        <div className="hero-body hero-body--projects">
           <div className="container">
             <div className="columns">
               <div className="is-one-third column">
@@ -49,11 +49,9 @@ const Project = props => {
               </div>
               <div className="two-thirds column">
                 <h1 className="title">{project.name}</h1>
-                {props.data.contentfulProject
-                  .childContentfulProjectDescriptionRichTextNode.json &&
+                {project.childContentfulProjectDescriptionRichTextNode.json &&
                   documentToReactComponents(
-                    props.data.contentfulProject
-                      .childContentfulProjectDescriptionRichTextNode.json,
+                    project.childContentfulProjectDescriptionRichTextNode.json,
                     options
                   )}
                 <a href={project.href} className="button is-link is-light" target="_blank">Link to project</a>
