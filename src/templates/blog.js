@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 const Blog = props => (
   <>
-  <section className="hero is-success is-fullheight-with-navbar is-bold">
+  <section className="hero is-success">
       <div className="hero-body">
         <div className="container">
           <h1 className="title">{props.data.contentfulBlogPost.title}</h1>

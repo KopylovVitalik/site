@@ -65,9 +65,11 @@ const ContentfulProject = ({ data }) => {
   return (
     <>
       <SEO title="About" />
-      <section className="hero is-fullheight-with-navbar is-bold">
-        <div className="hero-body">
+      <section className="hero is-bold">
+        <div className="hero-body hero-body--projects">
           <div className="container">
+            <h1 className="projects-title is-1 title is-text-bold">Projects</h1>
+            <hr/>
             <div className="controllers">
               {controllers.map(({ title, filter, modifier }, i) => (
                 <div className="controller">
@@ -84,7 +86,6 @@ const ContentfulProject = ({ data }) => {
             <div className="projects">
               {data.allContentfulProject.edges.map((project, i) => {
                 const category = project.node.category
-                // const isShow = category === projects || projects === "all"
                 return (
 
                   <div className={`projects__item ${category}`} key={i}>
@@ -107,7 +108,7 @@ const ContentfulProject = ({ data }) => {
                         <div className="project-card__content">
                           <div className="content">
                             <MenuLink
-                              className="button is-success is-outlined"
+                              className={`button is-small is-rounded button--${category}`}
                               to={`/projects/${project.node.slug}`}
                               direction="top"
                             >
@@ -129,7 +130,7 @@ const ContentfulProject = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulProject {
+    allContentfulProject(sort: { fields: [updatedAt], order: DESC }) {
       edges {
         node {
           href

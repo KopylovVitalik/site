@@ -9,6 +9,12 @@
   position: relative
   border: none
   cursor: pointer
+  &:hover
+    &.btn--game-landing
+      &:before
+        background-color: red
+      .btn__text
+        background-color: white
   &:after,
   &:before
     content: ''
@@ -39,6 +45,9 @@
   &--frameworks
     &:after
       background-image: $blueGrad
+  &--css 
+    &:after
+      background-image: $lightBlueGrad
   &.is-active
     background: $blueGrad
   &__text 
@@ -51,6 +60,27 @@
       background-image: $orangeGrad
     .btn--wordpress &
       background-image: $greenGrad
-    .btn--frameworks &
+    .btn--react_vue &
       background-image: $blueGrad
-   
+    .btn--css & 
+      background-image: $lightBlueGrad
+
+.button
+  &--css,
+  &--game-landing,
+  &--react_vue,
+  &--wordpress
+    color: $white
+    transition: transform 0.4s
+    &:hover
+      color: $white
+      border-color: $white
+      transform: scale(1.03)
+  &--css 
+    background-image: $lightBlueGrad
+  &--game-landing
+    background-image: $orangeGrad
+  &--wordpress
+    background-image: $greenGrad
+  &--react_vue
+    background-image: $blueGrad

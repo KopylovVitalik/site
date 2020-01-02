@@ -24,6 +24,7 @@ export const query = graphql`
       slug
       tag
       href
+      category
       image {
         fluid {
           src
@@ -40,28 +41,43 @@ const Project = props => {
   const { contentfulProject: project } = props.data;
   return (
     <>
-      <section className="hero is-success is-fullheight-with-navbar is-bold">
-        <div className="hero-body hero-body--projects">
+      <section className={`hero hero--${project.category}`}>
+        <div className="hero-body">
           <div className="container">
             <div className="columns">
               <div className="is-one-third column">
                 <img src={props.data.contentfulProject.image.fluid.src} alt="" />
-              </div>
-              <div className="two-thirds column">
-                <h1 className="title">{project.name}</h1>
-                {project.childContentfulProjectDescriptionRichTextNode.json &&
-                  documentToReactComponents(
-                    project.childContentfulProjectDescriptionRichTextNode.json,
-                    options
-                  )}
-                <a href={project.href} className="button is-link is-light" target="_blank">Link to project</a>
                 <MenuLink
-                  className="button is-danger is-outlined"
+                  className="button is-text is-small"
                   to="/projects/"
                   direction="up"
                 >
-                  To all projects
-              </MenuLink>
+                  <span class="icon is-small">
+                    <i class="fas fa-arrow-left"></i>
+                  </span>
+                  <span>Back to all projects</span>
+                </MenuLink>
+              </div>
+              <div className="two-thirds column">
+                <div className="content has-text-grey-dark">
+                  <h1 className="title">{project.name}</h1>
+                  {project.childContentfulProjectDescriptionRichTextNode.json &&
+                    documentToReactComponents(
+                      project.childContentfulProjectDescriptionRichTextNode.json,
+                      options
+                    )}
+                </div>
+
+                <div style={{ marginTop: '2rem' }}>
+                  <a href={project.href} className="button is-dark is-outlined is-rounded" target="_blank">
+                    <span>Link to project</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                  </a>
+                </div>
+
+
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@ function SEO({ description, lang, meta, title }) {
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
@@ -73,6 +73,7 @@ function SEO({ description, lang, meta, title }) {
         href="https://fonts.googleapis.com/css?family=Bitter:700|Raleway&display=swap"
         rel="stylesheet"
       />
+      <script defer="" src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     </Helmet>
   )
 }

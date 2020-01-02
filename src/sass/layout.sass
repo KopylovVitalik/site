@@ -8,6 +8,7 @@
     // max-width: 33.333%
     width: 33.333%
     padding: 0 15px 30px
+    
 
 .controllers
   display: grid
@@ -26,4 +27,21 @@ img
 
 .hero-body
   &--projects
-    align-items: flex-start
+    align-items: flex-start !important
+
+main
+  flex-grow: 1
+  display: flex
+  .tl-wrapper,
+  .tl-edges,
+  .hero,
+  .hero-body
+    display: flex
+    flex-grow: 1
+
+.page-wrapper
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  padding-top: 3.25rem
+

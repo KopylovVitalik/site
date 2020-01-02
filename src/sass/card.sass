@@ -29,13 +29,14 @@
   &:hover
     .project-card__bg 
       transform: scale(1.1)
-  &--css,
   &--game-landing
     background-image: $orangeGrad
   &--react_vue
     background-image: $blueGrad
   &--wordpress
     background-image: $greenGrad
+  &--css 
+    background-image: $lightBlueGrad
   &__bg-wrapper
     position: absolute
     top: 8px
@@ -49,17 +50,18 @@
     background-size: cover
     background-position: 0 0
     background-repeat: no-repeat
-    background-color: rgba(#000, 0.4)
+    background-color: rgba(#000, 0.5)
     transform-origin: 50% 50%
     transition: transform 0.5s
     background-blend-mode: overlay
+    backface-visibility: hidden
   &__inner
     position: absolute
     top: 0
     left: 0
     height: 100%
     width: 100%
-    padding: 20px
+    padding: 24px
     z-index: 4
     display: flex
     flex-direction: column

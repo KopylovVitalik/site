@@ -1,0 +1,15 @@
+.hero
+  &--wordpress,
+  &--css
+    position: relative
+    &:after
+      +coverdiv
+      content: ''
+      opacity: 0.8
+      z-index: -1
+  &--wordpress
+    &:after
+      background-image: $greenGrad
+  &--css
+    &:after
+      background-image: $blueGrad

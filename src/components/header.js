@@ -9,19 +9,19 @@ import headerStyles from "./header.module.scss"
 const Header = ({ siteTitle }) => (
   <header className={headerStyles.header}>
     <nav
-      className="navbar has-shadow is-spaced is-transparent"
+      className="navbar has-shadow is-transparent is-fixed-top"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="container">
         <div className="navbar-brand">
           <h1>
-            <Link
-              className="is-size-2 has-text-danger has-text-weight-bold"
+            <MenuLink
+              className="is-size-4 has-text-success has-text-weight-bold"
               to="/"
             >
               {siteTitle}
-            </Link>
+            </MenuLink>
           </h1>
         </div>
         <div className="navbar-end">

@@ -22,7 +22,7 @@ const ContentfulBlog = () => {
   return (
     <>
       <SEO title="About" />
-      <section className="hero is-fullheight-with-navbar is-primary is-bold">
+      <section className="hero is-primary is-bold">
         <div className="hero-body">
           <div className="container">
             <div className="columns">
