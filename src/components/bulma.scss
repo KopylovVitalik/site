@@ -3,5 +3,9 @@
 $navbar-box-shadow-color: blue;
 $navbar-box-shadow-size:	0 2px 0 0;
 $footer-background-color: transparent;
-$footer-padding: 1rem;
+$footer-padding: 0;
+$navbar-item-active-background-color:  transparent;
+$navbar-item-hover-background-color:  transparent;
+$navbar-item-hover-color: blue;
+$family-primary: 'Raleway';
 @import "~bulma/bulma.sass";

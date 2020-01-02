@@ -1,0 +1,31 @@
+.header 
+  position: relative
+  z-index: 10
+  .navbar 
+    padding: 1rem 0
+    &:after
+      content: ''
+      position: absolute
+      top: 100%
+      left: 0
+      height: 4px
+      width: 100%
+      background: $lightBlueGrad
+    // background: linear-gradient(135deg,#000dff 10%,#6b73ff 100%)
+    // box-shadow: 0 0 10px 1px rgba(blue, 0.4)
+    // border-bottom: 1px solid hsla(0, 0%, 21%, 0.5)
+  .navbar-item
+    position: relative
+    &.is-colored
+      -webkit-text-fill-color: transparent
+      -webkit-background-clip: text 
+      background-image: $orangeGrad
+  .navbar-brand
+    display: flex
+    align-items: center
+  .logo-text
+    position: relative
+    z-index: 15
+    -webkit-text-fill-color: transparent
+    -webkit-background-clip: text 
+    background-image: $orangeGrad

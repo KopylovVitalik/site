@@ -4,12 +4,10 @@ import PropTypes from "prop-types"
 import React from "react"
 import MenuLink from "./menu-link"
 
-import headerStyles from "./header.module.scss"
-
 const Header = ({ siteTitle }) => (
-  <header className={headerStyles.header}>
+  <header className='header'>
     <nav
-      className="navbar has-shadow is-transparent is-fixed-top"
+      className="navbar is-fixed-top"
       role="navigation"
       aria-label="main navigation"
     >
@@ -17,7 +15,7 @@ const Header = ({ siteTitle }) => (
         <div className="navbar-brand">
           <h1>
             <MenuLink
-              className="is-size-4 has-text-success has-text-weight-bold"
+              className="is-size-3 has-text-weight-bold logo-text"
               to="/"
             >
               {siteTitle}
@@ -26,9 +24,8 @@ const Header = ({ siteTitle }) => (
         </div>
         <div className="navbar-end">
           <MenuLink to="/">Home</MenuLink>
+          <MenuLink to="/works/">Works</MenuLink>
           <MenuLink to="/blog/">Blog</MenuLink>
-          <MenuLink to="/about/">About</MenuLink>
-          <MenuLink to="/projects/">Projects</MenuLink>
         </div>
       </div>
     </nav>

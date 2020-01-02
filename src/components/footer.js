@@ -26,10 +26,10 @@ const SocialLinks = props => {
 
 function Footer() {
 	return (
-		<footer className="footer">
+		<footer className="footer has-background-white-ter">
 			<div className="footer__inner container">
 				<div className="footer__content">
-					<p>Created by V.Kopylov</p>
+					<p className="is-size-5">Created by V.Kopylov</p>
 					<SocialLinks />
 				</div>
 			</div>

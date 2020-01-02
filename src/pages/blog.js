@@ -22,9 +22,10 @@ const ContentfulBlog = () => {
   return (
     <>
       <SEO title="About" />
-      <section className="hero is-primary is-bold">
+      <section className="hero is-primary is-bold is-fullheight-with-navbar">
         <div className="hero-body">
           <div className="container">
+            <h1 className="page-title is-1 title is-text-bold">Blogs</h1>
             <div className="columns">
               {data.allContentfulBlogPost.edges.map((blog, i) => {
                 return (

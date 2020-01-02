@@ -41,7 +41,7 @@ const Project = props => {
   const { contentfulProject: project } = props.data;
   return (
     <>
-      <section className={`hero hero--${project.category}`}>
+      <section className={`hero is-fullheight-with-navbar hero--${project.category}`}>
         <div className="hero-body">
           <div className="container">
             <div className="columns">
@@ -49,7 +49,7 @@ const Project = props => {
                 <img src={props.data.contentfulProject.image.fluid.src} alt="" />
                 <MenuLink
                   className="button is-text is-small"
-                  to="/projects/"
+                  to="/works/"
                   direction="up"
                 >
                   <span class="icon is-small">

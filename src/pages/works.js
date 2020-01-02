@@ -64,11 +64,11 @@ const ContentfulProject = ({ data }) => {
 
   return (
     <>
-      <SEO title="About" />
-      <section className="hero is-bold">
+      <SEO title="Works" />
+      <section className="hero has-background-light is-fullheight-with-navbar">
         <div className="hero-body hero-body--projects">
           <div className="container">
-            <h1 className="projects-title is-1 title is-text-bold">Projects</h1>
+            <h1 className="page-title is-1 title is-text-bold">Projects</h1>
             <hr/>
             <div className="controllers">
               {controllers.map(({ title, filter, modifier }, i) => (
@@ -109,7 +109,7 @@ const ContentfulProject = ({ data }) => {
                           <div className="content">
                             <MenuLink
                               className={`button is-small is-rounded button--${category}`}
-                              to={`/projects/${project.node.slug}`}
+                              to={`/works/${project.node.slug}`}
                               direction="top"
                             >
                               About project

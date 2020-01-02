@@ -1,11 +1,12 @@
 .hero
   &--wordpress,
-  &--css
+  &--css,
+  &--game-landing
     position: relative
     &:after
       +coverdiv
       content: ''
-      opacity: 0.8
+      opacity: 0.9
       z-index: -1
   &--wordpress
     &:after
@@ -13,3 +14,6 @@
   &--css
     &:after
       background-image: $blueGrad
+  &--game-landing
+   &:after
+     background-image: $orangeGrad
