@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import MenuLink from "../components/menu-link"
+import SEO from "../components/seo"
 
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -41,6 +42,7 @@ const Project = props => {
   const { contentfulProject: project } = props.data;
   return (
     <>
+      <SEO />
       <section className={`hero is-fullheight-with-navbar hero--${project.category}`}>
         <div className="hero-body">
           <div className="container">
@@ -69,7 +71,7 @@ const Project = props => {
                 </div>
 
                 <div style={{ marginTop: '2rem' }}>
-                  <a href={project.href} className="button is-dark is-outlined is-rounded" target="_blank">
+                  <a href={project.href} className="button is-success is-bold is-outlined is-rounded" target="_blank">
                     <span>Link to project</span>
                     <span class="icon is-small">
                       <i class="fas fa-arrow-right"></i>

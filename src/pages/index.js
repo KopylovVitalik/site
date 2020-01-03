@@ -13,7 +13,7 @@ const IndexPage = () => (
           <div className="columns">
             <div className="column">
               <div className="content is-medium">
-                <h1 className="title">About me</h1>
+                <h1 className="title page-title">About me</h1>
                 <p>I'm Vitalii Kopylov, front-end developer.</p>
                 <p>
                   At this moment I have 1.5 years experience in creating

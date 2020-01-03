@@ -9,12 +9,6 @@
   position: relative
   border: none
   cursor: pointer
-  &:hover
-    &.btn--game-landing
-      &:before
-        background-color: red
-      .btn__text
-        background-color: white
   &:after,
   &:before
     content: ''
@@ -25,7 +19,8 @@
     left: -3px
     bottom: -3px
     right: -3px
-    background-color: rgba(51,102,255,1)
+    // background-color: rgba(51,102,255,1)
+    background-color: $accentColor
     z-index: 1
   &:before
     content: ''
@@ -36,34 +31,42 @@
     right: 0
     background-color: #FFF
     z-index: 5
-  &--game-landing
-    &:after
-      background-image: $orangeGrad
-  &--wordpress
-    &:after
-      background-image: $greenGrad
-  &--frameworks
-    &:after
-      background-image: $blueGrad
-  &--css 
-    &:after
-      background-image: $lightBlueGrad
+  // &--game-landing
+  //   &:after
+  //     background-image: $orangeGrad
+  // &--wordpress
+  //   &:after
+  //     background-image: $greenGrad
+  // &--frameworks
+  //   &:after
+  //     background-image: $blueGrad
+  // &--css 
+  //   &:after
+  //     background-image: $lightBlueGrad
+  &:hover,
+  &.is-active
+    &:before
+      background-color: $accentColor
+    .btn__text
+      color: white
   &.is-active
     background: $blueGrad
   &__text 
     position: relative
     z-index: 15
-    -webkit-text-fill-color: transparent
-    -webkit-background-clip: text 
-    background-color: rgba(51,102,255,1)
-    .btn--game-landing &
-      background-image: $orangeGrad
-    .btn--wordpress &
-      background-image: $greenGrad
-    .btn--react_vue &
-      background-image: $blueGrad
-    .btn--css & 
-      background-image: $lightBlueGrad
+    color: $accentColor
+    background-color: transparent
+    // -webkit-text-fill-color: transparent
+    // -webkit-background-clip: text 
+    // background-color: rgba(51,102,255,1)
+    // .btn--game-landing &
+    //   background-image: $orangeGrad
+    // .btn--wordpress &
+    //   background-image: $greenGrad
+    // .btn--react_vue &
+    //   background-image: $blueGrad
+    // .btn--css & 
+    //   background-image: $lightBlueGrad
 
 .button
   &--css,
@@ -76,11 +79,11 @@
       color: $white
       border-color: $white
       transform: scale(1.03)
-  &--css 
-    background-image: $lightBlueGrad
-  &--game-landing
-    background-image: $orangeGrad
-  &--wordpress
-    background-image: $greenGrad
-  &--react_vue
-    background-image: $blueGrad
+  // &--css 
+  //   background-image: $lightBlueGrad
+  // &--game-landing
+  //   background-image: $orangeGrad
+  // &--wordpress
+  //   background-image: $greenGrad
+  // &--react_vue
+  //   background-image: $blueGrad

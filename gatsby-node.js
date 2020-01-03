@@ -22,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
             href
             slug
             tag
+            category
             image {
               fluid {
                 src
@@ -39,6 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/works/${element.node.slug}`,
       context: {
         slug: element.node.slug,
+        category: element.node.category
       },
     })
   })
@@ -64,4 +66,19 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /isotope/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
 }
