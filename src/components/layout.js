@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
@@ -19,9 +19,11 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [theme, changeTheme] = useState('light');
+
   return (
-    <div className="page-wrapper">
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <div className="page-wrapper" data-theme={theme}>
+      <Header siteTitle={data.site.siteMetadata.title} changeTheme={changeTheme} theme={theme} />
       <main>{children}</main>
       <Footer />
     </div>
