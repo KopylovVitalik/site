@@ -5,8 +5,22 @@ import React from "react"
 import MenuLink from "./menu-link"
 
 const Header = ({ siteTitle, changeTheme, theme }) => {
-  function changeThemeToggle(theme) {
-    changeTheme(theme)
+
+  function changeThemeToggle(e, theme) {
+    switch (theme) {
+      case "light":
+        changeTheme("dark")
+        break
+      case "dark":
+        changeTheme("gradient")
+        break
+      case "gradient":
+        changeTheme("light")
+        break
+      default:
+        changeTheme("light")
+        break
+    }
   }
 
   return (
@@ -31,15 +45,12 @@ const Header = ({ siteTitle, changeTheme, theme }) => {
             <MenuLink to="/">Home</MenuLink>
             <MenuLink to="/works/">Works</MenuLink>
             <MenuLink to="/blog/">Blog</MenuLink>
-            {["light", "dark", "gradient"].map((el, index) => (
-              theme !== el && <button
-                className={`theme-toggler button is-${el}`}
-                onClick={e => changeThemeToggle(el, e)}
-                key={index}
-              >
-                Change theme to {el}
-              </button>
-            ))}
+            <button
+              className={`theme-toggler button is-${theme}`}
+              onClick={e => changeThemeToggle(e, theme)}
+            >
+              Change theme
+            </button>
           </div>
         </div>
       </nav>

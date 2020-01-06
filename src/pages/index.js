@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <>
     <SEO title="Home" />
-    <section className="hero has-background-white-bis is-fullheight-with-navbar">
+    <section className="hero is-fullheight-with-navbar">
       <div className="hero-body">
         <div className="container">
           <div className="columns">

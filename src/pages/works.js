@@ -67,7 +67,7 @@ const ContentfulProjects = ({ data }) => {
     <>
       <SEO title="Works" />
       {typeof window !== "undefined" && (
-        <section className="hero has-background-light is-fullheight-with-navbar">
+        <section className="hero is-fullheight-with-navbar">
           <div className="hero-body hero-body--projects">
             <div className="container">
               <h1 className="page-title is-1 title is-text-bold">Works</h1>

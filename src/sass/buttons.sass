@@ -2,26 +2,34 @@
   display: inline-block
   padding: 10px
   font-family: serif
-  border-radius: 50px
   color: #FFF
   text-transform: uppercase
   font-family: "Bitter"
   position: relative
   border: none
   cursor: pointer
+  [data-theme="light"] &,
+  [data-theme="dark"] &
+    border-radius: 0
+  [data-theme="gradient"] &
+    border-radius: 50px 
   &:after,
   &:before
     content: ''
     position: absolute
-    border-radius: 50px
+    border-radius: inherit
   &:after,
     top: -3px
     left: -3px
     bottom: -3px
     right: -3px
-    // background-color: rgba(51,102,255,1)
-    background-color: $accentColor
     z-index: 1
+    [data-theme="light"] &
+      background-color: $success
+    [data-theme="dark"] &
+      background-color: $white
+    [data-theme="gradient"] &
+      background-color: $accentColor
   &:before
     content: ''
     position: absolute
@@ -29,44 +37,59 @@
     left: 0
     bottom: 0
     right: 0
-    background-color: #FFF
     z-index: 5
-  // &--game-landing
-  //   &:after
-  //     background-image: $orangeGrad
-  // &--wordpress
-  //   &:after
-  //     background-image: $greenGrad
-  // &--frameworks
-  //   &:after
-  //     background-image: $blueGrad
-  // &--css 
-  //   &:after
-  //     background-image: $lightBlueGrad
+    [data-theme="light"] &,
+    [data-theme="gradient"] &
+      background-color: $white
+    [data-theme="dark"] &
+      background-color: $dark
+  &--game-landing
+    &:after
+      [data-theme="gradient"] &
+        background-image: $orangeGrad
+  &--wordpress
+    &:after
+      [data-theme="gradient"] &
+        background-image: $greenGrad
+  &--frameworks
+    &:after
+      [data-theme="gradient"] &
+        background-image: $blueGrad
+  &--css 
+    &:after
+      [data-theme="gradient"] &
+        background-image: $lightBlueGrad
   &:hover,
   &.is-active
     &:before
       background-color: $accentColor
     .btn__text
       color: white
-  &.is-active
-    background: $blueGrad
+  // &.is-active
+  //   background: $blueGrad
   &__text 
     position: relative
     z-index: 15
     color: $accentColor
     background-color: transparent
-    // -webkit-text-fill-color: transparent
-    // -webkit-background-clip: text 
-    // background-color: rgba(51,102,255,1)
-    // .btn--game-landing &
-    //   background-image: $orangeGrad
-    // .btn--wordpress &
-    //   background-image: $greenGrad
-    // .btn--react_vue &
-    //   background-image: $blueGrad
-    // .btn--css & 
-    //   background-image: $lightBlueGrad
+    [data-theme="gradient"] & 
+      -webkit-text-fill-color: transparent
+      -webkit-background-clip: text 
+      background-image: $whiteGrad
+    .btn--game-landing &
+      [data-theme="gradient"] &
+        background-image: $orangeGrad
+    .btn--wordpress &
+      [data-theme="gradient"] &
+        background-image: $greenGrad
+    .btn--frameworks &
+      [data-theme="gradient"] &
+        background-image: $blueGrad
+    .btn--css & 
+      [data-theme="gradient"] &
+        background-image: $lightBlueGrad
+    
+      
 
 .button
   &--css,
@@ -79,6 +102,9 @@
       color: $white
       border-color: $white
       transform: scale(1.03)
+    [data-theme="light"] &,
+    [data-theme="dark"] &
+      border-radius: 0
   // &--css 
   //   background-image: $lightBlueGrad
   // &--game-landing

@@ -3,7 +3,12 @@
   z-index: 10
   .navbar 
     padding: 1rem 0
-    background-color: transparent
+    [data-theme="light"] &
+      background-color: $white
+    [data-theme="dark"] &
+      background-color: #000
+    [data-theme="gradient"] &
+      background: linear-gradient(135deg,#000dff 10%,#6b73ff 100%)
     &:after
       content: ''
       position: absolute
@@ -12,7 +17,7 @@
       height: 4px
       width: 100%
       background: $secondaryColor
-    // background: linear-gradient(135deg,#000dff 10%,#6b73ff 100%)
+    // 
     // box-shadow: 0 0 10px 1px rgba(blue, 0.4)
     // border-bottom: 1px solid hsla(0, 0%, 21%, 0.5)
   .navbar-item
