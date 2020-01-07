@@ -4,7 +4,7 @@
   font-family: serif
   color: #FFF
   text-transform: uppercase
-  font-family: "Bitter"
+  font-family: $titleFont
   position: relative
   border: none
   cursor: pointer
@@ -24,10 +24,9 @@
     bottom: -3px
     right: -3px
     z-index: 1
-    [data-theme="light"] &
-      background-color: $success
+    [data-theme="light"] &,
     [data-theme="dark"] &
-      background-color: $white
+      background-color: $success
     [data-theme="gradient"] &
       background-color: $accentColor
   &:before
@@ -62,9 +61,13 @@
   &:hover,
   &.is-active
     &:before
-      background-color: $accentColor
+      [data-theme="light"] &,
+      [data-theme="dark"] &
+        background-color: $accentColor
     .btn__text
-      color: white
+      [data-theme="light"] &,
+      [data-theme="dark"] &
+        color: white
   // &.is-active
   //   background: $blueGrad
   &__text 
@@ -73,9 +76,8 @@
     color: $accentColor
     background-color: transparent
     [data-theme="gradient"] & 
-      -webkit-text-fill-color: transparent
-      -webkit-background-clip: text 
-      background-image: $whiteGrad
+      +textBG
+      background-image: linear-gradient(to left, $accentColor, $accentColor)
     .btn--game-landing &
       [data-theme="gradient"] &
         background-image: $orangeGrad
@@ -88,8 +90,6 @@
     .btn--css & 
       [data-theme="gradient"] &
         background-image: $lightBlueGrad
-    
-      
 
 .button
   &--css,
@@ -105,11 +105,37 @@
     [data-theme="light"] &,
     [data-theme="dark"] &
       border-radius: 0
-  // &--css 
-  //   background-image: $lightBlueGrad
-  // &--game-landing
-  //   background-image: $orangeGrad
-  // &--wordpress
-  //   background-image: $greenGrad
-  // &--react_vue
-  //   background-image: $blueGrad
+  &--css 
+    [data-theme="gradient"] &
+      background-image: $lightBlueGrad
+  &--game-landing
+    [data-theme="gradient"] &
+      background-image: $orangeGrad
+  &--wordpress
+    [data-theme="gradient"] &
+      background-image: $greenGrad
+  &--react_vue
+    [data-theme="gradient"] &
+      background-image: $blueGrad
+
+[data-theme="gradient"],
+[data-theme="dark"]
+  .button
+    &.is-text
+      color: $white
+      &:hover
+        color: $dark
+
+.button
+  &.is-theme-dark,
+  &.is-theme-light
+    border-radius: 0
+    background-color: transparent
+  &.is-theme-dark
+    color: $white
+    border-color: $white
+  &.is-theme-gradient
+    border-radius: 20px
+    background-image: $orangeGrad
+    color: $white
+    border-width: 3px

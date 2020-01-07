@@ -6,8 +6,8 @@ import SEO from "../components/seo"
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-const Bold = ({ children }) => <span className="bold">{children}</span>
-const Text = ({ children }) => <p className="align-center">{children}</p>
+const Bold = ({ children }) => <span>{children}</span>
+const Text = ({ children }) => <p>{children}</p>
 
 const options = {
   renderMark: {
@@ -46,11 +46,11 @@ const Project = props => {
       <section className={`hero is-fullheight-with-navbar hero--${project.category}`}>
         <div className="hero-body">
           <div className="container">
-            <div className="columns">
+            <div className="columns is-8 is-variable">
               <div className="is-one-third column">
-                <img src={props.data.contentfulProject.image.fluid.src} alt="" />
+                <img src={props.data.contentfulProject.image.fluid.src} alt="" className="single-project-image" />
                 <MenuLink
-                  className="button is-text is-small"
+                  className={`button is-text is-small`}
                   to="/works/"
                   direction="up"
                 >
@@ -60,8 +60,8 @@ const Project = props => {
                   <span>Back to all projects</span>
                 </MenuLink>
               </div>
-              <div className="two-thirds column">
-                <div className="content has-text-grey-dark">
+              <div className="two-thirds column column--project-content">
+                <div className="content">
                   <h1 className="title">{project.name}</h1>
                   {project.childContentfulProjectDescriptionRichTextNode.json &&
                     documentToReactComponents(
@@ -71,7 +71,7 @@ const Project = props => {
                 </div>
 
                 <div style={{ marginTop: '2rem' }}>
-                  <a href={project.href} className="button is-success is-bold is-outlined is-rounded" target="_blank">
+                  <a href={project.href} className="button is-outlined" target="_blank">
                     <span>Link to project</span>
                     <span class="icon is-small">
                       <i class="fas fa-arrow-right"></i>

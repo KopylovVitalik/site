@@ -2,11 +2,11 @@ import React from "react"
 import { Link } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-const MenuLink = ({ children, to, direction = "right", className="navbar-item is-size-5 has-text-weight-bold has-text-dark" }) => (
+const MenuLink = ({ children, to, direction = "top", className="navbar-item is-size-5 has-text-weight-bold" }) => (
   <AniLink
     className={className}
     to={to}
-    activeClassName="is-colored"
+    activeClassName="is-link-active"
     cover
     direction={direction}
     duration={0.8}

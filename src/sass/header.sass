@@ -9,30 +9,51 @@
       background-color: #000
     [data-theme="gradient"] &
       background: linear-gradient(135deg,#000dff 10%,#6b73ff 100%)
+      // background-color: transparent
     &:after
       content: ''
       position: absolute
       top: 100%
       left: 0
-      height: 4px
+      height: 2px
       width: 100%
-      background: $secondaryColor
+      [data-theme="light"] &
+        background-color: $dark
+      [data-theme="dark"] &
+        background-color: $white
+      [data-theme="gradient"] &
+        background: $secondaryColor
     // 
     // box-shadow: 0 0 10px 1px rgba(blue, 0.4)
     // border-bottom: 1px solid hsla(0, 0%, 21%, 0.5)
   .navbar-item
     position: relative
-    &.is-colored
-      -webkit-text-fill-color: transparent
-      -webkit-background-clip: text 
-      background-image: $orangeGrad
+    [data-theme="dark"] &,
+    [data-theme="gradient"] &
+      color: hsl(0, 0%, 96%)
+    &.is-link-active
+      [data-theme="light"] &,
+      [data-theme="dark"] &
+        color: $accentColor
+      [data-theme="gradient"] &
+        +textBG
+        background-image: $orangeGrad
   .navbar-brand
     display: flex
     align-items: center
+  .navbar-end
+    align-items: center
   .logo-text
     color: #000
-    // position: relative
-    // z-index: 15
-    // -webkit-text-fill-color: transparent
-    // -webkit-background-clip: text 
-    // background-image: $orangeGrad
+    font-family: $titleFont
+    position: relative
+    z-index: 15
+    [data-theme="light"] &
+      color: $dark
+    [data-theme="dark"] &
+      color: $white
+    [data-theme="gradient"] &
+      +textBG
+      background-image: $orangeGrad
+  .theme-toggler
+    margin-left: 24px

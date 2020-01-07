@@ -19,13 +19,39 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const [theme, changeTheme] = useState('light');
+  const [theme, changeTheme] = useState("light")
 
   return (
     <div className="page-wrapper" data-theme={theme}>
-      <Header siteTitle={data.site.siteMetadata.title} changeTheme={changeTheme} theme={theme} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        changeTheme={changeTheme}
+        theme={theme}
+      />
       <main>{children}</main>
       <Footer />
+      {theme === "gradient" && (
+        <ul className="gradient-bg">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      )}
     </div>
   )
 }

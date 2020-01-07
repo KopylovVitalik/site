@@ -46,10 +46,10 @@ const Header = ({ siteTitle, changeTheme, theme }) => {
             <MenuLink to="/works/">Works</MenuLink>
             <MenuLink to="/blog/">Blog</MenuLink>
             <button
-              className={`theme-toggler button is-${theme}`}
+              className={`theme-toggler button is-theme-${theme} is-outlined`}
               onClick={e => changeThemeToggle(e, theme)}
             >
-              Change theme
+              <span>{theme}</span>
             </button>
           </div>
         </div>
