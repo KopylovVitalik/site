@@ -42,6 +42,16 @@ const ContentfulProjects = ({ data }) => {
       modifier: "",
     },
     {
+      title: "Frameworks",
+      filter: "react_vue",
+      modifier: "frameworks",
+    },
+    {
+      title: "Wordpress",
+      filter: "wordpress",
+      modifier: "wordpress",
+    },
+    {
       title: "HTML/CSS",
       filter: "css",
       modifier: "css",
@@ -50,17 +60,7 @@ const ContentfulProjects = ({ data }) => {
       title: "Game landings",
       filter: "game-landing",
       modifier: "game-landing",
-    },
-    {
-      title: "Wordpress",
-      filter: "wordpress",
-      modifier: "wordpress",
-    },
-    {
-      title: "Frameworks",
-      filter: "react_vue",
-      modifier: "frameworks",
-    },
+    }
   ]
 
   return (

@@ -17,10 +17,7 @@ const IndexPage = () => (
                 <h1 className="title page-title">About me</h1>
                 <p>I'm Vitalii Kopylov, front-end developer.</p>
                 <p>
-                  I have 2+ years experience in web-development.
-                </p>
-                <p>
-                  My main technology stack:
+                I have 2+ years of experience in web development with the following  technology stacks:
                   <ul>
                     <li>HTML Templating - Nunjucks</li>
                     <li>CSS Templating - .SASS</li>
