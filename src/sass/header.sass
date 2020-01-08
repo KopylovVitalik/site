@@ -38,11 +38,37 @@
       [data-theme="gradient"] &
         +textBG
         background-image: $orangeGrad
+  .navbar-inner
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
   .navbar-brand
     display: flex
     align-items: center
+    padding-left: 16px
   .navbar-end
     align-items: center
+    display: flex
+    padding-right: 16px
+    +mobile 
+      flex-direction: column
+      align-items: flex-start
+      position: absolute
+      bottom: calc(1rem + 100%)
+      left: 0
+      width: 100%
+      padding-bottom: 16px
+      transition: transform 0.5s
+      transform: translateY(calc(84px + 101%))
+      [data-theme="light"] &
+        background-color: $white
+      [data-theme="dark"] &
+        background-color: #000
+      [data-theme="gradient"] &
+        background: linear-gradient(135deg,#000dff 10%,#6b73ff 100%)
+      &.is-closed
+        transform: translateY(0)
   .logo-text
     color: #000
     font-family: $titleFont
@@ -57,3 +83,13 @@
       background-image: $orangeGrad
   .theme-toggler
     margin-left: 24px
+    +mobile 
+      margin-left: 0.75rem
+
+.navbar-burger 
+  margin-left: 0
+
+@media screen and (min-width: 768px)
+  .navbar-burger 
+    display: none
+    margin-left: auto

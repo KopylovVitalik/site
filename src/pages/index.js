@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Image from "../components/image"
+import photo from "../images/photo_upd.jpeg" 
 import SEO from "../components/seo"
 
 const IndexPage = () => (
@@ -10,31 +11,29 @@ const IndexPage = () => (
     <section className="hero is-fullheight-with-navbar">
       <div className="hero-body">
         <div className="container">
-          <div className="columns">
+          <div className="columns is-8 is-variable">
             <div className="column">
               <div className="content is-medium">
                 <h1 className="title page-title">About me</h1>
                 <p>I'm Vitalii Kopylov, front-end developer.</p>
                 <p>
-                  At this moment I have 1.5 years experience in creating
-                  web-sites.
+                  I have 2+ years experience in web-development.
                 </p>
                 <p>
-                  My main tech stack:
+                  My main technology stack:
                   <ul>
                     <li>HTML Templating - Nunjucks</li>
                     <li>CSS Templating - .SASS</li>
                     <li>JavaScript - ES2015 with webpack</li>
                     <li>Wordpress - Timber(TWIG) / ACF</li>
+                    <li>React / Vue</li>
                   </ul>
-                </p>
-                <p>
-                  Also I have experience in React/Vue, my main goal at 2020 to
-                  use this JS as my main technology
                 </p>
               </div>
             </div>
-            <div className="column"></div>
+            <div className="column is-one-third">
+              <img src={photo} alt="Vitalii Koylov"/>
+            </div>
           </div>
         </div>
       </div>

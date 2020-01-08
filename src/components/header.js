@@ -5,7 +5,6 @@ import React from "react"
 import MenuLink from "./menu-link"
 
 const Header = ({ siteTitle, changeTheme, theme }) => {
-
   function changeThemeToggle(e, theme) {
     switch (theme) {
       case "light":
@@ -23,6 +22,10 @@ const Header = ({ siteTitle, changeTheme, theme }) => {
     }
   }
 
+  const [menuOpen, toggleMenu] = React.useState(false)
+
+  // const clickHandler = () => toggleMenu(!menuOpen)
+
   return (
     <header className="header">
       <nav
@@ -31,29 +34,48 @@ const Header = ({ siteTitle, changeTheme, theme }) => {
         aria-label="main navigation"
       >
         <div className="container">
-          <div className="navbar-brand">
-            <h1>
-              <MenuLink
-                className="is-size-3 has-text-weight-bold logo-text"
-                to="/"
+          <div className="navbar-inner">
+            <div className="navbar-brand">
+              <h1>
+                <MenuLink
+                  className="is-size-3 is-size-5-mobile has-text-weight-bold logo-text"
+                  to="/"
+                >
+                  {siteTitle}
+                </MenuLink>
+              </h1>
+            </div>
+            <div className={`navbar-end ${menuOpen ? "is-open" : "is-closed"}`}>
+              <div onClick={() => toggleMenu(false)}>
+                <MenuLink to="/">Home</MenuLink>
+              </div>
+              <div onClick={() => toggleMenu(false)}>
+                <MenuLink to="/works/">Works</MenuLink>
+              </div>
+              {/* <Link to="/blog/" onClick={() => toggleMenu(!menuOpen)}>Blog</Link> */}
+              <button
+                className={`theme-toggler button is-theme-${theme} is-outlined`}
+                onClick={e => changeThemeToggle(e, theme)}
               >
-                {siteTitle}
-              </MenuLink>
-            </h1>
-          </div>
-          <div className="navbar-end">
-            <MenuLink to="/">Home</MenuLink>
-            <MenuLink to="/works/">Works</MenuLink>
-            {/* <MenuLink to="/blog/">Blog</MenuLink> */}
-            <button
-              className={`theme-toggler button is-theme-${theme} is-outlined`}
-              onClick={e => changeThemeToggle(e, theme)}
+                <span>{theme}</span>
+              </button>
+            </div>
+
+            <a
+              role="button"
+              class="navbar-burger"
+              aria-label="menu"
+              aria-expanded="false"
+              onClick={() => toggleMenu(!menuOpen)}
             >
-              <span>{theme}</span>
-            </button>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
           </div>
         </div>
       </nav>
+
     </header>
   )
 }

@@ -2,26 +2,22 @@
   // display: flex
   // flex-wrap: wrap
   position: relative
-  // margin: 0 -15px
+  margin: 0 -15px
+  +mobile 
+    margin: 0
   &__item
     // flex: 0 0 33.333%
     // padding: 0 15px 30px
     // max-width: 33.333%
     width: 33.333%
     padding: 0 15px 30px
-  
-@media (max-width: 1024px) 
-  .projects
-    &__item
+    +tablet
       width: 50%
       padding: 0 15px 30px
-
-@media (max-width: 767px) 
-  .projects
-    &__item
+    +mobile
+      padding: 0 0 20px
       width: 100%
-      padding: 0 15px 30px
-
+      
 .controllers
   display: grid
   grid-template-columns: repeat(5 ,minmax(140px, max-content))
@@ -30,6 +26,7 @@
     grid-template-columns: repeat(5 ,minmax(80px, max-content))
   +mobile
     grid-template-columns: 1fr 1fr
+    margin-bottom: 1.5rem
 
 
 .controller
