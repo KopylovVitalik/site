@@ -44,7 +44,7 @@ const Header = ({ siteTitle, changeTheme, theme }) => {
           <div className="navbar-end">
             <MenuLink to="/">Home</MenuLink>
             <MenuLink to="/works/">Works</MenuLink>
-            <MenuLink to="/blog/">Blog</MenuLink>
+            {/* <MenuLink to="/blog/">Blog</MenuLink> */}
             <button
               className={`theme-toggler button is-theme-${theme} is-outlined`}
               onClick={e => changeThemeToggle(e, theme)}

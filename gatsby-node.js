@@ -45,27 +45,27 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  const blogTemplate = path.resolve(`src/templates/blog.js`)
-  const blog = await graphql(`
-    query {
-      allContentfulBlogPost {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
-  `)
-  blog.data.allContentfulBlogPost.edges.forEach(element => {
-    createPage({
-      component: blogTemplate,
-      path: `/blog/${element.node.slug}`,
-      context: {
-        slug: element.node.slug,
-      },
-    })
-  })
+  // const blogTemplate = path.resolve(`src/templates/blog.js`)
+  // const blog = await graphql(`
+  //   query {
+  //     allContentfulBlogPost {
+  //       edges {
+  //         node {
+  //           slug
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+  // blog.data.allContentfulBlogPost.edges.forEach(element => {
+  //   createPage({
+  //     component: blogTemplate,
+  //     path: `/blog/${element.node.slug}`,
+  //     context: {
+  //       slug: element.node.slug,
+  //     },
+  //   })
+  // })
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

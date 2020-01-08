@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const [theme, changeTheme] = useState("light")
+  const [theme, changeTheme] = useState("gradient")
 
   return (
     <div className="page-wrapper" data-theme={theme}>

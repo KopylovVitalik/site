@@ -9,6 +9,18 @@
   -webkit-text-fill-color: transparent
   -webkit-background-clip: text 
 
+=r($width)
+  @media only screen and (max-width: $width+ "px")
+    @content
+
+=tablet
+  +r(1024)
+    @content
+
+=mobile
+  +r(767)
+    @content
+
 $mainColor: #6B73FF
 $accentColor: #9670ff
 $secondaryColor: #6bfff1

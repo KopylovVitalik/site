@@ -47,7 +47,7 @@ const Project = props => {
         <div className="hero-body">
           <div className="container">
             <div className="columns is-8 is-variable">
-              <div className="is-one-third column">
+              <div className="is-half column">
                 <img src={props.data.contentfulProject.image.fluid.src} alt="" className="single-project-image" />
                 <MenuLink
                   className={`button is-text is-small`}
@@ -60,7 +60,7 @@ const Project = props => {
                   <span>Back to all projects</span>
                 </MenuLink>
               </div>
-              <div className="two-thirds column column--project-content">
+              <div className="is-half column column--project-content">
                 <div className="content">
                   <h1 className="title">{project.name}</h1>
                   {project.childContentfulProjectDescriptionRichTextNode.json &&
