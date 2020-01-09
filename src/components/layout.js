@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
+import GlobalContext from "../context/globalContext"
 
 import "./layout.css"
 import "./bulma.scss"
@@ -19,40 +20,40 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const [theme, changeTheme] = useState("light")
-
+  // const [theme, changeTheme] = useState("light")
+  const globalContext = React.useContext(GlobalContext)
+  const { theme } = globalContext
+  // const theme = "gradient"
   return (
-    <div className="page-wrapper" data-theme={theme}>
-      <Header
-        siteTitle={data.site.siteMetadata.title}
-        changeTheme={changeTheme}
-        theme={theme}
-      />
-      <main>{children}</main>
-      <Footer />
-      {theme === "gradient" && (
-        <ul className="gradient-bg">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      )}
-    </div>
+    <>
+      <div className="page-wrapper" data-theme={theme}>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <main>{children}</main>
+        <Footer />
+        {theme === "gradient" && (
+          <ul className="gradient-bg">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        )}
+      </div>
+    </>
   )
 }
 

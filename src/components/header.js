@@ -3,22 +3,25 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import MenuLink from "./menu-link"
+import GlobalContext from "../context/globalContext"
 
-const Header = ({ siteTitle, changeTheme, theme }) => {
+const Header = ({ siteTitle }) => {
+  const globalContext = React.useContext(GlobalContext)
+  const { theme, setTheme } = globalContext
 
   function changeThemeToggle(e, theme) {
     switch (theme) {
       case "light":
-        changeTheme("dark")
+        setTheme("dark")
         break
       case "dark":
-        changeTheme("gradient")
+        setTheme("gradient")
         break
       case "gradient":
-        changeTheme("light")
+        setTheme("light")
         break
       default:
-        changeTheme("light")
+        setTheme("light")
         break
     }
   }
