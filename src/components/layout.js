@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 import GlobalContext from "../context/globalContext"
+import Canvas from "./canvas"
 
 import "./layout.css"
 import "./bulma.scss"
@@ -27,6 +28,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="page-wrapper" data-theme={theme}>
+        <Canvas />
         <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
         <Footer />
