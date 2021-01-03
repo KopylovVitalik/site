@@ -1,19 +1,23 @@
-const path = require("path")
+const path = require("path");
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
-    const slug = path.basename(node.fileAbsolutePath, ".md")
-    // console.log(JSON.stringify(node, undefined, 4));
-    createNodeField({ node, name: "slug", value: slug })
+    const slug = createFilePath({ node, getNode, basePath: `posts` });
+    // const slug = path.basename(node.fileAbsolutePath, ".md");
+    console.log(slug);
+    if (slug) {
+      createNodeField({ node, name: "slug", value: slug });
+    }
   }
-}
+};
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const projectTemplate = path.resolve(`src/templates/project.js`)
+  const projectTemplate = path.resolve(`src/templates/project.js`);
   const res = await graphql(`
     query {
       allContentfulProject {
@@ -33,40 +37,64 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
   res.data.allContentfulProject.edges.forEach(element => {
     createPage({
       component: projectTemplate,
       path: `/works/${element.node.slug}`,
       context: {
         slug: element.node.slug,
-        category: element.node.category
+        category: element.node.category,
       },
-    })
-  })
+    });
+  });
 
-  // const blogTemplate = path.resolve(`src/templates/blog.js`)
-  // const blog = await graphql(`
-  //   query {
-  //     allContentfulBlogPost {
-  //       edges {
-  //         node {
-  //           slug
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-  // blog.data.allContentfulBlogPost.edges.forEach(element => {
-  //   createPage({
-  //     component: blogTemplate,
-  //     path: `/blog/${element.node.slug}`,
-  //     context: {
-  //       slug: element.node.slug,
-  //     },
-  //   })
-  // })
-}
+  const blogTemplate = path.resolve(`src/templates/blog.js`);
+  const blog = await graphql(`
+    query {
+      allContentfulBlogPost {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `);
+  blog.data.allContentfulBlogPost.edges.forEach(element => {
+    createPage({
+      component: blogTemplate,
+      path: `/blog/${element.node.slug}`,
+      context: {
+        slug: element.node.slug,
+      },
+    });
+  });
+
+  const postTemplate = path.resolve(`src/templates/post.js`);
+  const post = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+  post.data.allMarkdownRemark.edges.forEach(element => {
+    createPage({
+      component: postTemplate,
+      path: `/post/${element.node.fields.slug}`,
+      context: {
+        slug: element.node.fields.slug,
+      },
+    });
+  });
+};
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
@@ -79,6 +107,6 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
           },
         ],
       },
-    })
+    });
   }
-}
+};

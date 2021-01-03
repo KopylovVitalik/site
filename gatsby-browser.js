@@ -1,7 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from "react";
+import GlobalState from "./src/context/GlobalState";
+export const wrapRootElement = ({ element }) => (
+  <GlobalState>{element}</GlobalState>
+);
 
-// You can delete this file if you're not using it
+require("prism-themes/themes/prism-vsc-dark-plus.css");

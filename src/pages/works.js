@@ -1,39 +1,43 @@
 import MenuLink from "../components/menu-link"
 import { useStaticQuery, graphql } from "gatsby"
-import React, { useState, useRef, useEffect, useCallback, useMemo } from "react"
+import React, { useState, useRef, useEffect, useContext } from "react"
 import Isotope from "isotope-layout/js/isotope"
 
+import GlobalContext from "../context/globalContext"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
 const ContentfulProjects = ({ data }) => {
+  const globalContext = React.useContext(GlobalContext)
+  const { category, setCategory } = globalContext
   // store the isotope object in one state
   const [isotope, setIsotope] = React.useState(null)
   // store the filter keyword in another state
-  const [filterKey, setFilterKey] = React.useState("*")
+  // const [filterKey, setFilterKey] = React.useState("*")
 
   // initialize an Isotope object with configs
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (typeof window !== "undefined") {
       setIsotope(
         new Isotope(".projects", {
           itemSelector: ".projects__item",
           layoutMode: "fitRows",
+          transitionDuration: "0.2s",
         })
       )
     }
   }, [])
 
   // handling filter key change
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (typeof window !== "undefined") {
       if (isotope) {
-        filterKey === "*"
+        category === "*"
           ? isotope.arrange({ filter: `*` })
-          : isotope.arrange({ filter: `.${filterKey}` })
+          : isotope.arrange({ filter: `.${category}` })
       }
     }
-  }, [isotope, filterKey])
+  }, [isotope, category])
 
   const controllers = [
     {
@@ -76,9 +80,9 @@ const ContentfulProjects = ({ data }) => {
                   <div className="controller">
                     <button
                       className={`btn ${modifier ? "btn--" + modifier : ""} ${
-                        filterKey === filter ? "is-active" : ""
+                        category === filter ? "is-active" : ""
                       }`}
-                      onClick={() => setFilterKey(filter)}
+                      onClick={() => setCategory(filter)}
                     >
                       <span className="btn__text">{title}</span>
                     </button>

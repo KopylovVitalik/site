@@ -1,23 +1,26 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
-// import { BLOCKS, MARKS } from "@contentful/rich-text-types"
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-
-import RichText from '../components/rich-text'
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 const Blog = props => (
   <>
-  <section className="hero is-success">
+    <section className="hero is-success">
       <div className="hero-body">
         <div className="container">
           <h1 className="title">{props.data.contentfulBlogPost.title}</h1>
-          <RichText content={props.data.contentfulBlogPost.childContentfulBlogPostBodyRichTextNode.json} />
+          <div
+            className="body"
+            dangerouslySetInnerHTML={{
+              __html:
+                props.data.contentfulBlogPost
+                  .childContentfulBlogPostMarkdownTextNode.childMarkdownRemark
+                  .html,
+            }}
+          />
         </div>
       </div>
     </section>
   </>
-)
+);
 
 export const query = graphql`
   query($slug: String!) {
@@ -26,8 +29,10 @@ export const query = graphql`
       slug
       title
       publishedDate
-      childContentfulBlogPostBodyRichTextNode {
-        json
+      childContentfulBlogPostMarkdownTextNode {
+        childMarkdownRemark {
+          html
+        }
       }
       image {
         fluid {
@@ -36,6 +41,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default Blog
+export default Blog;

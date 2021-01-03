@@ -1,12 +1,14 @@
-import React, { useRef, useState } from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import Header from "./header"
-import Footer from "./footer"
+import React, { useRef, useState } from "react";
+import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
+import Header from "./header";
+import Footer from "./footer";
+import GlobalContext from "../context/globalContext";
+import Canvas from "./canvas";
 
-import "./layout.css"
-import "./bulma.scss"
-import "../sass/custom.sass"
+import "./layout.css";
+import "./bulma.scss";
+import "../sass/custom.sass";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -17,47 +19,48 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
-  const [theme, changeTheme] = useState("gradient")
-
+  // const [theme, changeTheme] = useState("light")
+  const globalContext = React.useContext(GlobalContext);
+  const { theme } = globalContext;
+  // const theme = "gradient"
   return (
-    <div className="page-wrapper" data-theme={theme}>
-      <Header
-        siteTitle={data.site.siteMetadata.title}
-        changeTheme={changeTheme}
-        theme={theme}
-      />
-      <main>{children}</main>
-      <Footer />
-      {theme === "gradient" && (
-        <ul className="gradient-bg">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      )}
-    </div>
-  )
-}
+    <>
+      <div className="page-wrapper" data-theme={theme}>
+        <Canvas />
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <main>{children}</main>
+        <Footer />
+        {theme === "gradient" && (
+          <ul className="gradient-bg">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        )}
+      </div>
+    </>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
