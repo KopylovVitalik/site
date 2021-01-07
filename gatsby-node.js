@@ -1,14 +1,17 @@
 const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
-    const slug = createFilePath({ node, getNode, basePath: `posts` });
-    // const slug = path.basename(node.fileAbsolutePath, ".md");
-    console.log(slug);
+    // const slug = createFilePath({ node, getNode, basePath: `post` });
+    const slug = path.basename(node.fileAbsolutePath, ".md");
+    // console.log(node);
+    // const slug = createFilePath({ node, getNode });
+
     if (slug) {
+      console.log("md:", slug);
       createNodeField({ node, name: "slug", value: slug });
     }
   }
@@ -49,27 +52,28 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const blogTemplate = path.resolve(`src/templates/blog.js`);
-  const blog = await graphql(`
-    query {
-      allContentfulBlogPost {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
-  `);
-  blog.data.allContentfulBlogPost.edges.forEach(element => {
-    createPage({
-      component: blogTemplate,
-      path: `/blog/${element.node.slug}`,
-      context: {
-        slug: element.node.slug,
-      },
-    });
-  });
+  // Blog Depracated
+  // const blogTemplate = path.resolve(`src/templates/blog.js`);
+  // const blog = await graphql(`
+  //   query {
+  //     allContentfulBlogPost {
+  //       edges {
+  //         node {
+  //           slug
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
+  // blog.data.allContentfulBlogPost.edges.forEach(element => {
+  //   createPage({
+  //     component: blogTemplate,
+  //     path: `/blog/${element.node.slug}`,
+  //     context: {
+  //       slug: element.node.slug,
+  //     },
+  //   });
+  // });
 
   const postTemplate = path.resolve(`src/templates/post.js`);
   const post = await graphql(`

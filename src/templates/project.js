@@ -54,8 +54,8 @@ const Project = props => {
                   to="/works/"
                   direction="up"
                 >
-                  <span class="icon is-small">
-                    <i class="fas fa-arrow-left"></i>
+                  <span className="icon is-small">
+                    <i className="fas fa-arrow-left"></i>
                   </span>
                   <span>Back to all projects</span>
                 </MenuLink>
@@ -73,8 +73,8 @@ const Project = props => {
                 <div style={{ marginTop: '2rem' }}>
                   <a href={project.href} className="button is-outlined" target="_blank">
                     <span>Link to project</span>
-                    <span class="icon is-small">
-                      <i class="fas fa-arrow-right"></i>
+                    <span className="icon is-small">
+                      <i className="fas fa-arrow-right"></i>
                     </span>
                   </a>
                 </div>

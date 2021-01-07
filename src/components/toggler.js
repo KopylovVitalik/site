@@ -113,9 +113,9 @@ if (page_name === 'kursy-kriptovalyut') {
       zeroRecords: 'Не найдено таких криптовалют',
       paginate: {
         next:
-          '<span data-text="Следующие 50"><span class="paginate_button_inner">Следующие 50</span></span>',
+          '<span data-text="Следующие 50"><span className="paginate_button_inner">Следующие 50</span></span>',
         previous:
-          '<span data-text="Предыдущие 50"><span class="paginate_button_inner">Предыдущие 50</span></span>',
+          '<span data-text="Предыдущие 50"><span className="paginate_button_inner">Предыдущие 50</span></span>',
       },
     },
   });

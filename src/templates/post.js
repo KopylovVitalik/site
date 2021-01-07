@@ -29,4 +29,4 @@ const Post = props => (
   </>
 )
 
-export default Blog
+export default Post
