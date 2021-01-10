@@ -45,7 +45,7 @@ const Project = props => {
       <SEO />
       <section className={`hero is-fullheight-with-navbar hero--${project.category}`}>
         <div className="hero-body">
-          <div className="container">
+          <div className="inner">
             <div className="columns is-8 is-variable">
               <div className="is-half column">
                 <img src={props.data.contentfulProject.image.fluid.src} alt="" className="single-project-image" />

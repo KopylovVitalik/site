@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
   res.data.allContentfulProject.edges.forEach(element => {
     createPage({
       component: projectTemplate,
-      path: `/works/${element.node.slug}`,
+      path: `/portfolio/${element.node.slug}`,
       context: {
         slug: element.node.slug,
         category: element.node.category,

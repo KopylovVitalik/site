@@ -1,0 +1,41 @@
+.header 
+  position: relative
+  z-index: 10
+  padding: 12px 0
+  [data-theme="light"] &
+    background-color: $white
+  [data-theme="dark"] &
+    background-color: #000
+  [data-theme="gradient"] &
+    background: linear-gradient(135deg,#000dff 10%,#6b73ff 100%)
+  &__inner
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &__menu
+    margin-right: 24px
+  &__logo
+    margin-right: auto
+  &__theme-toggler
+    min-width: 100px
+    text-align: right
+
+.main-menu
+  &__list
+    display: flex
+  &__item
+    padding: 0 10px
+  &__link
+    font-family: $titleFont
+    font-size: 18px
+    color: var(--header-link-color)
+    text-decoration: none
+    
+
+
+.logo
+  svg 
+    height: 80px
+    width: auto
+    path
+      fill: var(--logo-fill)

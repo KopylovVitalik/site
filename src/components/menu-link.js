@@ -6,7 +6,7 @@ const MenuLink = ({
   children,
   to,
   direction = "top",
-  className = "navbar-item is-size-5 has-text-weight-bold"
+  className
 }) => (
   <AniLink
     className={className}

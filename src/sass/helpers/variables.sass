@@ -1,26 +1,3 @@
-=coverdiv
-  position: absolute
-  top: 0
-  left: 0
-  height: 100%
-  width: 100%
-
-=textBG
-  -webkit-text-fill-color: transparent
-  -webkit-background-clip: text 
-
-=r($width)
-  @media only screen and (max-width: $width+ "px")
-    @content
-
-=tablet
-  +r(1024)
-    @content
-
-=mobile
-  +r(767)
-    @content
-
 $mainColor: #6B73FF
 $accentColor: #9670ff
 $secondaryColor: #6bfff1
@@ -35,4 +12,5 @@ $greenGrad: linear-gradient( 135deg, #70F570 10%, #49C628 100%);
 $whiteGrad: linear-gradient( 135deg, #FFF 0%, #FFF 100%);
 $white: #FFF
 
-$titleFont: 'Bitter', serif;
+$titleFont: 'Gilroy', sans-serif;
+$mainFont: 'Roboto'

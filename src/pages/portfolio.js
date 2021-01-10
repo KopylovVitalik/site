@@ -73,7 +73,7 @@ const ContentfulProjects = ({ data }) => {
       {typeof window !== "undefined" && (
         <section className="hero is-fullheight-with-navbar">
           <div className="hero-body hero-body--projects">
-            <div className="container">
+            <div className="inner">
               <h1 className="page-title is-1 title is-text-bold">Works</h1>
               <div className="controllers">
                 {controllers.map(({ title, filter, modifier }, i) => (
@@ -116,7 +116,7 @@ const ContentfulProjects = ({ data }) => {
                             <div className="content">
                               <MenuLink
                                 className={`button is-small is-rounded is-success button--${category}`}
-                                to={`/works/${project.node.slug}`}
+                                to={`/portfolio/${project.node.slug}`}
                                 direction="top"
                               >
                                 More about
