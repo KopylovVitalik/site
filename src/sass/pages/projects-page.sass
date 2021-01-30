@@ -1,0 +1,23 @@
+.projects-page
+  padding: 80px 0 50px
+  &__controllers
+    padding: 30px 0 50px
+  &__calc
+    position: fixed
+    width: 100%
+    top: 0
+    &-wrapper 
+      position: relative
+    &-grid
+      position: absolute
+      left: 0
+      top: 212px
+      right: 0
+      opacity: 0
+      visibility: hidden
+      pointer-events: none
+      display: grid
+      grid-template-columns: repeat(6, 1fr)
+      grid-gap: $gap
+    &-left
+      grid-column: 1 / span 3

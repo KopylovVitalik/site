@@ -35,35 +35,31 @@
     [data-theme="gradient"] &
       background-color: transparent
       background-image: $lightBlueGrad
-  &__bg-wrapper
+  &__image-wrapper
     position: absolute
-    top: 4px
-    left: 4px
-    bottom: 4px
-    right: 4px
     overflow: hidden
     [data-theme="light"] &
-      border-radius: 0
       background-color: #ccc
     [data-theme="dark"] &
-      border-radius: 0
       background-color: $white
+    [data-theme="light"] &,
+    [data-theme="dark"] &
+      border-radius: 0
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
     [data-theme="gradient"] &
       top: 8px
       left: 8px
       bottom: 8px
       right: 8px
       border-radius: 12px
-  &__bg
+  &__image
     +coverdiv
-    background-size: cover
-    background-position: 0 0
-    background-repeat: no-repeat
-    transform-origin: 50% 50%
-    transition: transform 0.5s
-    background-blend-mode: overlay
-    backface-visibility: hidden
-    filter: inherit
+    object-fit: cover
+  &__overlay
+    +coverdiv
     [data-theme="light"] &
       background-color: rgba(#000, 0.5)
     [data-theme="dark"] &
@@ -90,3 +86,10 @@
       color: $white
     [data-theme="dark"] &
       color: mix($success, black)
+
+.post-card
+  display: flex
+  flex-direction: column
+  background: $white
+  padding: 20px
+  text-align: center

@@ -1,13 +1,13 @@
-import React from "react"
-import { graphql } from "gatsby"
-import MenuLink from "../components/menu-link"
-import SEO from "../components/seo"
+import React from "react";
+import { graphql } from "gatsby";
+import MenuLink from "../components/menu-link";
+import SEO from "../components/seo";
 
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-const Bold = ({ children }) => <span>{children}</span>
-const Text = ({ children }) => <p>{children}</p>
+const Bold = ({ children }) => <span>{children}</span>;
+const Text = ({ children }) => <p>{children}</p>;
 
 const options = {
   renderMark: {
@@ -16,7 +16,7 @@ const options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
   },
-}
+};
 
 export const query = graphql`
   query($slug: String!) {
@@ -36,56 +36,56 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 const Project = props => {
   const { contentfulProject: project } = props.data;
   return (
     <>
       <SEO />
-      <section className={`hero is-fullheight-with-navbar hero--${project.category}`}>
-        <div className="hero-body">
-          <div className="inner">
-            <div className="columns is-8 is-variable">
-              <div className="is-half column">
-                <img src={props.data.contentfulProject.image.fluid.src} alt="" className="single-project-image" />
-                <MenuLink
-                  className={`button is-text is-small`}
-                  to="/works/"
-                  direction="up"
-                >
-                  <span className="icon is-small">
-                    <i className="fas fa-arrow-left"></i>
-                  </span>
-                  <span>Back to all projects</span>
-                </MenuLink>
+      <section className={`portfolio-page portfolio-page--${project.category}`}>
+        <div className="portfolio-page__inner inner">
+          <div className="portfolio-page__grid">
+            <div className="portfolio-page__left">
+              <div
+                className={`single-project-image single-project-image--${project.category}`}
+              >
+                <div className="single-project-image__image-wrapper">
+                  <img
+                    src={props.data.contentfulProject.image.fluid.src}
+                    alt=""
+                  />
+                </div>
               </div>
-              <div className="is-half column column--project-content">
-                <div className="content">
-                  <h1 className="title">{project.name}</h1>
-                  {project.childContentfulProjectDescriptionRichTextNode.json &&
-                    documentToReactComponents(
-                      project.childContentfulProjectDescriptionRichTextNode.json,
-                      options
-                    )}
-                </div>
 
-                <div style={{ marginTop: '2rem' }}>
-                  <a href={project.href} className="button is-outlined" target="_blank">
-                    <span>Link to project</span>
-                    <span className="icon is-small">
-                      <i className="fas fa-arrow-right"></i>
-                    </span>
-                  </a>
-                </div>
-
-
+              <MenuLink className={`btn-link`} to="/portfolio/" direction="up">
+                <span>Back to all projects</span>
+              </MenuLink>
+            </div>
+            <div className="portfolio-page__right">
+              <div className="content">
+                <h1 className="title">{project.name}</h1>
+                {project.childContentfulProjectDescriptionRichTextNode.json &&
+                  documentToReactComponents(
+                    project.childContentfulProjectDescriptionRichTextNode.json,
+                    options
+                  )}
+              </div>
+              <div style={{ marginTop: "2rem" }}>
+                <a
+                  href={project.href}
+                  className={`btn btn--${props.data.contentfulProject.category}`}
+                  target="_blank"
+                >
+                  <span className="btn__text">Link to project</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </>)
-}
+    </>
+  );
+};
 
-export default Project
+export default Project;

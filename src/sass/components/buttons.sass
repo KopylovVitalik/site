@@ -92,6 +92,28 @@
       [data-theme="gradient"] &
         background-image: $lightBlueGrad
 
+.btn-link
+  display: inline-block
+  position: relative
+  font-family: $titleFont
+  font-size: 18px
+  color: var(--header-link-color)
+  text-decoration: none
+  &:hover:before
+    transform: scale(1)
+    transform-origin: 0 50%
+  &:before
+    content: ''
+    position: absolute
+    top: 100%
+    left: 0
+    width: 100%
+    height: 2px
+    transform: scale(0)
+    transform-origin: 100% 50%
+    transition: transform $tr
+    background: var(--header-link-color)
+
 .button
   &--css,
   &--game-landing,

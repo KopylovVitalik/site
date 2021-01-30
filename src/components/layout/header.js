@@ -42,6 +42,7 @@ const Header = ({ siteTitle }) => {
                 <li
                   className="main-menu__item"
                   onClick={() => toggleMenu(false)}
+                  key={el.title}
                 >
                   <MenuLink to={el.to} className="main-menu__link">
                     {el.title}

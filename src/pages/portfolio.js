@@ -1,17 +1,18 @@
-import MenuLink from "../components/menu-link"
-import { useStaticQuery, graphql } from "gatsby"
-import React, { useState, useRef, useEffect, useContext } from "react"
-import Isotope from "isotope-layout/js/isotope"
+import MenuLink from "../components/menu-link";
+import { useStaticQuery, graphql } from "gatsby";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import Isotope from "isotope-layout/js/isotope";
+import ProjectCard from "../components/ProjectCard";
 
-import GlobalContext from "../context/globalContext"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import GlobalContext from "../context/globalContext";
+import Image from "../components/image";
+import SEO from "../components/seo";
 
 const ContentfulProjects = ({ data }) => {
-  const globalContext = React.useContext(GlobalContext)
-  const { category, setCategory } = globalContext
+  const globalContext = React.useContext(GlobalContext);
+  const { category, setCategory } = globalContext;
   // store the isotope object in one state
-  const [isotope, setIsotope] = React.useState(null)
+  const [isotope, setIsotope] = React.useState(null);
   // store the filter keyword in another state
   // const [filterKey, setFilterKey] = React.useState("*")
 
@@ -24,9 +25,9 @@ const ContentfulProjects = ({ data }) => {
           layoutMode: "fitRows",
           transitionDuration: "0.2s",
         })
-      )
+      );
     }
-  }, [])
+  }, []);
 
   // handling filter key change
   React.useLayoutEffect(() => {
@@ -34,10 +35,10 @@ const ContentfulProjects = ({ data }) => {
       if (isotope) {
         category === "*"
           ? isotope.arrange({ filter: `*` })
-          : isotope.arrange({ filter: `.${category}` })
+          : isotope.arrange({ filter: `.${category}` });
       }
     }
-  }, [isotope, category])
+  }, [isotope, category]);
 
   const controllers = [
     {
@@ -64,69 +65,59 @@ const ContentfulProjects = ({ data }) => {
       title: "Game landings",
       filter: "game-landing",
       modifier: "game-landing",
-    }
-  ]
+    },
+  ];
 
   return (
     <>
       <SEO title="Works" />
       {typeof window !== "undefined" && (
-        <section className="hero is-fullheight-with-navbar">
-          <div className="hero-body hero-body--projects">
-            <div className="inner">
-              <h1 className="page-title is-1 title is-text-bold">Works</h1>
-              <div className="controllers">
-                {controllers.map(({ title, filter, modifier }, i) => (
-                  <div className="controller">
-                    <button
-                      className={`btn ${modifier ? "btn--" + modifier : ""} ${
-                        category === filter ? "is-active" : ""
-                      }`}
-                      onClick={() => setCategory(filter)}
-                    >
-                      <span className="btn__text">{title}</span>
-                    </button>
+        <section className="projects-page">
+          <div className="projects-page__calc">
+            <div className="projects-page__calc-inner inner">
+              <div className="projects-page__calc-wrapper">
+                <div className="projects-page__calc-grid">
+                  <div className="projects-page__calc-left">
+                    <div className="single-project-image single-project-image--calc"></div>
                   </div>
-                ))}
+                </div>
               </div>
+            </div>
+          </div>
+          <div className="projects-page__inner inner">
+            <div className="projects-page__header">
+              <div className="projects-page__title">
+                <h1 className="page-title">Projects</h1>
+              </div>
+              <div className="projects-page__controllers">
+                <div className="controllers">
+                  {controllers.map(({ title, filter, modifier }, i) => (
+                    <div className="controller">
+                      <button
+                        className={`btn ${modifier ? "btn--" + modifier : ""} ${
+                          category === filter ? "is-active" : ""
+                        }`}
+                        onClick={() => setCategory(filter)}
+                      >
+                        <span className="btn__text">{title}</span>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="projects-page__projects">
               <div className="projects">
                 {data.allContentfulProject.edges.map((project, i) => {
-                  const category = project.node.category
+                  const category = project.node.category;
                   return (
                     <div
                       className={`projects__item ${category}`}
                       key={project.node.id}
                     >
-                      <div className={`project-card project-card--${category}`}>
-                        <div className="project-card__bg-wrapper">
-                          <div
-                            className="project-card__bg"
-                            style={{
-                              backgroundImage: `url(${project.node.image.fluid.src})`,
-                            }}
-                          ></div>
-                        </div>
-                        <div className="project-card__inner">
-                          <header className="project-card__header">
-                            <h3 className="is-size-4 project-card__title">
-                              {project.node.name}
-                            </h3>
-                          </header>
-                          <div className="project-card__content">
-                            <div className="content">
-                              <MenuLink
-                                className={`button is-small is-rounded is-success button--${category}`}
-                                to={`/portfolio/${project.node.slug}`}
-                                direction="top"
-                              >
-                                More about
-                              </MenuLink>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <ProjectCard project={project} category={category} />
                     </div>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -134,8 +125,8 @@ const ContentfulProjects = ({ data }) => {
         </section>
       )}
     </>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
@@ -156,6 +147,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default ContentfulProjects
+export default ContentfulProjects;

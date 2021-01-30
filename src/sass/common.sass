@@ -20,29 +20,6 @@ body
     +mobile
       padding: 0 0 20px
       width: 100%
-      
-.controllers
-  display: grid
-  grid-template-columns: repeat(5 ,minmax(140px, max-content))
-  margin-bottom: 3rem
-  +tablet
-    grid-template-columns: repeat(5 ,minmax(80px, max-content))
-  +mobile
-    grid-template-columns: 1fr 1fr
-    margin-bottom: 1.5rem
-
-.controller
-  +mobile 
-    margin-bottom: 12px
-  .btn
-    width: 100%
-  &:not(:last-child)
-    margin-right: 16px
-    +mobile
-      margin-right: 0
-  &:nth-child(odd)
-    +mobile 
-      margin-right: 12px
 
 img 
   display: block
@@ -51,29 +28,6 @@ img
 .hero-body
   &--projects
     align-items: flex-start !important
-
-.page-title
-  font-family: $titleFont
-  font-weight: 700
-  display: inline-block
-  [data-theme="light"] &
-    color: $dark
-  [data-theme="dark"] &
-    color: $white
-  [data-theme="gradient"] &
-    background-color: transparent
-    +textBG
-    background-image: $lightBlueGrad
-
-.hero.is-fullheight-with-navbar
-  min-height: calc(100vh - 4rem)
-  padding-top: 5rem
-  [data-theme="light"] &
-    background-color: $white
-  [data-theme="dark"] &
-    background-color: $dark
-  [data-theme="gradient"] &
-    background-color: transparent
 
 .content,
 .content *
