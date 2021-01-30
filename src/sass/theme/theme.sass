@@ -2,11 +2,23 @@
   --header-link-color: #{$dark}
   --logo-fill: #{$mainColor}
   --main-bg: #{$white}
+  --header-bg: $white
+  --content-accent: #{$accentColor}
 [data-theme="dark"] 
   --header-link-color: #{$white}
   --logo-fill: #{$mainColor}
   --main-bg: #{$dark}
+  --header-bg: $black
+  --content-accent: #{$secondaryColor}
 [data-theme="gradient"]
   --header-link-color: #{$white}
   --logo-fill: #{$white}
   --main-bg: transparent
+  --header-bg: linear-gradient(135deg,#000dff 10%,#6b73ff 100%)
+  --content-accent: #{$accentColor}
+[data-theme="neuromorphic"]
+  --header-link-color: #{$dark}
+  --logo-fill: #{$mainColor}
+  --main-bg: #e1e9ec
+  --header-bg: rgba(#e1e9ec, 0.95)
+  --content-accent: #{$accentColor}

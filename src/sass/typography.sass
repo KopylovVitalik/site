@@ -1,6 +1,6 @@
 .page-title
   font-family: $titleFont
-  font-weight: 700
+  font-weight: 800
   display: inline-block
   font-size: 100px
   [data-theme="light"] &
@@ -11,3 +11,165 @@
     background-color: transparent
     +textBG
     background-image: $lightBlueGrad
+
+.title
+  font-family: $titleFont
+  font-weight: 800
+  font-size: 50px
+  [data-theme="light"] &,
+  [data-theme="neuromorphic"] &
+    color: $dark
+  [data-theme="dark"] &
+    color: $white
+  [data-theme="gradient"] &
+    background-color: transparent
+    +textBG
+    background-image: $lightBlueGrad
+
+.content,
+.content *
+  [data-theme="dark"] &
+    color: $white
+  [data-theme="gradient"] &
+    color: $white
+  p 
+    font-family: $mainFont
+    font-weight: 400
+    font-size: 16px
+    line-height: 1.4
+    & + p
+      margin-top: 1em
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 
+    font-family: $titleFont
+    font-size: 22px
+    font-weight: 800
+    line-height: 1
+    margin-bottom: 1em
+    margin-top: 1em
+  ul,
+  ol,
+  blockquote 
+    padding-left: 40px
+    margin: 1em 0
+  ul
+    li
+      position: relative;
+      &:before 
+        content: ""
+        display: inline-block
+        +circle(4)
+        background-color: $accentColor
+        vertical-align: middle
+        margin-right: 4px
+        margin-top: -3px
+  ol
+    counter-reset: list
+    li 
+      &:before 
+        content: counter(list) ". "
+        counter-increment: list
+        padding-right: 4px
+        font-family: inherit
+        font-weight: 700
+        color: var(--content-accent)
+
+
+
+//     a {
+//         color: #a174ff;
+//     }
+
+//     blockquote {
+//         font-style: italic;
+//         p {
+//             &:not(:last-child) {
+//                 margin-bottom: 0.5em;
+//             }
+//             &:last-child:not(:first-child) {
+//                 margin-left: 16px;
+//             }
+//         }
+//     }
+//     h2,
+//     h3,
+//     h4,
+//     h5,
+//     h6 {
+//         font-family: $titleFont;
+//         font-size: 22px;
+//         font-weight: bold;
+//         line-height: 1;
+//         color: $black;
+//         margin-bottom: 1em;
+//         margin-top: 1em;
+//     }
+//     .image-alt,
+//     img {
+//         margin-top: 40px;
+//         display: inline-block;
+//         vertical-align: bottom;
+//         @include md {
+//             margin: 24px 0;
+//             display: block;
+//         }
+//     }
+//     .image-alt {
+//         margin-left: 30px;
+//         margin-bottom: 70px;
+//         font-style: italic;
+//         max-width: 30%;
+//         @include md {
+//             max-width: 400px;
+//         }
+//     }
+//     img {
+//         max-width: 60%;
+//         width: auto;
+//         height: auto;
+//         margin-bottom: 40px;
+//         box-shadow: $cardShadow;
+//         @include sm {
+//             max-width: 100%;
+//             width: 100%;
+//         }
+//         & + .image-alt {
+//             @include md {
+//                 margin-top: -16px;
+//             }
+//         }
+//     }
+//     .expert-review-expert-bio__avatar img {
+//         max-width: 100%;
+//         margin-top: 0;
+//     }
+   
+//     ul,
+//     ol {
+//         li {
+//             &:not(:last-child) {
+//                 margin-bottom: 5px;
+//             }
+//         }
+//     }
+//  
+  
+//     table {
+//         border-collapse: collapse;
+//         border-spacing: 0;
+//         border: 1px solid $black;
+//         width: auto !important;
+//         table-layout: fixed;
+//     }
+//     table td {
+//         border: 1px solid $black;
+//         padding: 5px;
+//     }
+//     .content-table-wrapper {
+//         overflow: auto;
+//         margin-bottom: 24px;
+//     }
+// }

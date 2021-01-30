@@ -9,6 +9,33 @@
   -webkit-text-fill-color: transparent
   -webkit-background-clip: text 
 
+=fsize($val)
+  flex: 0 0 $val
+  min-width: $val
+
+=fcenter
+  display: flex
+  justify-content: center
+  align-items: center
+
+=icenter
+  display: inline-block
+  vertical-align: middle
+
+=fadeout($tr)
+  opacity: 0
+  visibility: hidden
+  transition: opacity $tr, visibility $tr
+
+=fadein
+  opacity: 1
+  visibility: visible
+
+=circle($size)
+  height: $size + px
+  width: $size + px
+  border-radius: 50%
+
 =r($width)
   @media only screen and (max-width: $width+ "px")
     @content

@@ -16,6 +16,9 @@
     border-radius: 0
   [data-theme="gradient"] &
     border-radius: 20px
+  [data-theme="neuromorphic"] &
+    border-radius: 20px
+    box-shadow: $neuroShadow
   &:hover
     .project-card__bg 
       transform: scale(1.1)
@@ -42,6 +45,8 @@
       background-color: #ccc
     [data-theme="dark"] &
       background-color: $white
+    [data-theme="neuromorphic"] &
+      background-color: #e1e9ec
     [data-theme="light"] &,
     [data-theme="dark"] &
       border-radius: 0
@@ -49,6 +54,12 @@
       left: 0
       right: 0
       bottom: 0
+    [data-theme="neuromorphic"] &
+      top: 8px
+      left: 8px
+      bottom: 8px
+      right: 8px
+      border-radius: 18px
     [data-theme="gradient"] &
       top: 8px
       left: 8px
@@ -58,6 +69,8 @@
   &__image
     +coverdiv
     object-fit: cover
+    // [data-theme="neuromorphic"] &
+    //   opacity: 0.1
   &__overlay
     +coverdiv
     [data-theme="light"] &
@@ -66,13 +79,15 @@
       background-color: rgba(#FFF, 0.5)
     [data-theme="gradient"] &
       background-color: rgba(#000, 0.5)
+    [data-theme="neuromorphic"] &
+      background-color: rgba(#e1e9ec, 0.7)
   &__inner
     position: absolute
     top: 0
     left: 0
     height: 100%
     width: 100%
-    padding: 24px
+    padding: 24px 24px 32px
     z-index: 4
     display: flex
     flex-direction: column
@@ -81,6 +96,8 @@
     font-size: 24px
     font-weight: 700
     margin-bottom: 16px
+    font-family: $titleFont
+    font-weight: 800
     [data-theme="light"] &,
     [data-theme="gradient"] &
       color: $white

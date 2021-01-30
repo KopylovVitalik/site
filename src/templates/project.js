@@ -43,10 +43,10 @@ const Project = props => {
   return (
     <>
       <SEO />
-      <section className={`portfolio-page portfolio-page--${project.category}`}>
-        <div className="portfolio-page__inner inner">
-          <div className="portfolio-page__grid">
-            <div className="portfolio-page__left">
+      <section className={`project-page project-page--${project.category}`}>
+        <div className="project-page__inner inner">
+          <div className="project-page__grid">
+            <div className="project-page__left">
               <div
                 className={`single-project-image single-project-image--${project.category}`}
               >
@@ -62,7 +62,7 @@ const Project = props => {
                 <span>Back to all projects</span>
               </MenuLink>
             </div>
-            <div className="portfolio-page__right">
+            <div className="project-page__right">
               <div className="content">
                 <h1 className="title">{project.name}</h1>
                 {project.childContentfulProjectDescriptionRichTextNode.json &&

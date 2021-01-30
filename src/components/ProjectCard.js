@@ -37,7 +37,7 @@ const ProjectCard = ({ project, category }) => {
         card.current,
         {
           ...style,
-          duration: 1.2,
+          duration: 1.1,
           ease: "power2.in"
         },
         "-=0.1"

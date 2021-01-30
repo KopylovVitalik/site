@@ -2,12 +2,7 @@
   position: relative
   z-index: 10
   padding: 12px 0
-  [data-theme="light"] &
-    background-color: $white
-  [data-theme="dark"] &
-    background-color: #000
-  [data-theme="gradient"] &
-    background: linear-gradient(135deg,#000dff 10%,#6b73ff 100%)
+  background-color: var(--header-bg, $white)
   &__inner
     display: flex
     align-items: center

@@ -14,6 +14,9 @@ export default function ThemeToggler() {
         setTheme("gradient");
         break;
       case "gradient":
+        setTheme("neuromorphic");
+        break;
+      case "neuromorphic":
         setTheme("light");
         break;
       default:
@@ -24,7 +27,7 @@ export default function ThemeToggler() {
 
   return (
     <button
-      className={`theme-toggler btn is-theme-${theme} is-outlined`}
+      className={`btn btn--toggler is-theme-${theme}`}
       onClick={e => changeThemeToggle(e, theme)}
     >
       <span className="btn__text">{theme}</span>
