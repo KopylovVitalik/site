@@ -5,10 +5,17 @@
   background-color: #ffffff
   border-radius: 5px
 
+.card-title
+  font-size: 24px
+  font-weight: 700
+  font-family: $titleFont
+  font-weight: 800
+
 .project-card
   position: relative
   overflow: hidden
   padding-bottom: 60%
+  text-decoration: none;
   [data-theme="light"] &
     border-radius: 0
     background-color: $mainColor 
@@ -80,7 +87,8 @@
     [data-theme="gradient"] &
       background-color: rgba(#000, 0.5)
     [data-theme="neuromorphic"] &
-      background-color: rgba(#e1e9ec, 0.7)
+      background-color: rgba(#e1e9ec, 0.2)
+      background-blend-mode: exclusion
   &__inner
     position: absolute
     top: 0
@@ -93,11 +101,7 @@
     flex-direction: column
     justify-content: flex-end
   &__title
-    font-size: 24px
-    font-weight: 700
     margin-bottom: 16px
-    font-family: $titleFont
-    font-weight: 800
     [data-theme="light"] &,
     [data-theme="gradient"] &
       color: $white
@@ -105,8 +109,43 @@
       color: mix($success, black)
 
 .post-card
-  display: flex
-  flex-direction: column
-  background: $white
-  padding: 20px
-  text-align: center
+  padding: 8px
+  [data-theme="light"] &
+    border-radius: 0
+    background-color: $mainColor 
+  [data-theme="dark"] &
+    border-radius: 0
+  [data-theme="gradient"] &
+    border-radius: 20px
+    background-image: $blueGrad
+  [data-theme="neuromorphic"] &
+    border-radius: 20px
+    box-shadow: $neuroShadow
+  &__inner
+    display: flex
+    flex-direction: column
+    height: 100%
+  &__image
+    padding-bottom: 50%;
+    position: relative;
+    // margin-top: -8px;
+    // margin-left: -8px
+    // margin-right: -8px;
+    overflow: hidden
+    [data-theme="neuromorphic"] &,
+    [data-theme="gradient"] &
+      border-radius: 12px 12px 0 0
+    & > img
+      +coverdiv
+      object-fit: cover
+  &__text
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px
+    background: $white
+    [data-theme="neuromorphic"] &,
+    [data-theme="gradient"] &
+      border-radius: 0 0 12px 12px
+  &__btn 
+    margin-top: auto;

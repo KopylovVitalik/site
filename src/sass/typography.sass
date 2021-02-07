@@ -12,7 +12,8 @@
     +textBG
     background-image: $lightBlueGrad
 
-.title
+.title,
+.title > span
   font-family: $titleFont
   font-weight: 800
   font-size: 50px
@@ -64,7 +65,7 @@
         +circle(4)
         background-color: $accentColor
         vertical-align: middle
-        margin-right: 4px
+        margin-right: 8px
         margin-top: -3px
   ol
     counter-reset: list
@@ -76,7 +77,12 @@
         font-family: inherit
         font-weight: 700
         color: var(--content-accent)
-
+  ol, ul 
+    li 
+      &:not(:last-child)
+        margin-bottom: 0.5em;
+      & > p 
+        display: inline-block
 
 
 //     a {

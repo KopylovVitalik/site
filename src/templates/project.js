@@ -40,6 +40,8 @@ export const query = graphql`
 
 const Project = props => {
   const { contentfulProject: project } = props.data;
+  const projectNameRaw = project.name;
+  const projectName = projectNameRaw.split("");
   return (
     <>
       <SEO />
@@ -64,7 +66,14 @@ const Project = props => {
             </div>
             <div className="project-page__right">
               <div className="content">
-                <h1 className="title">{project.name}</h1>
+                {/* <h1 className="title">
+                  {projectName.map(el => (
+                    <span class="char">{el}</span>
+                  ))}
+                </h1> */}
+                <h1 className="title" data-anim="title-wrapper">
+                  <span data-anim="title">{projectNameRaw}</span>
+                </h1>
                 {project.childContentfulProjectDescriptionRichTextNode.json &&
                   documentToReactComponents(
                     project.childContentfulProjectDescriptionRichTextNode.json,

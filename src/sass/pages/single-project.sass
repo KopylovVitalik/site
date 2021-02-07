@@ -8,12 +8,24 @@
     grid-column: 1 / span 5
   &__right 
     grid-column: 7 / -1
-    // opacity: 0
+  .title
+    margin-bottom: 0.5em
+    backface-visibility: hidden
+
+.title
+  .char
+    display: inline-block
+    position: relative
+    min-width: 0.24em
+    [data-theme="gradient"] &
+      display: inline
+
 
 .single-project-image
   position: relative
   overflow: hidden
   padding-bottom: 60%
+  margin-bottom: 36px;
   // opacity: 0
   [data-theme="light"] &
     border-radius: 0
@@ -24,6 +36,9 @@
     box-shadow: 0 0 23px 8px rgba($white,1)
   [data-theme="gradient"] &
     border-radius: 20px
+  [data-theme="neuromorphic"] &
+    border-radius: 20px
+    box-shadow: $neuroShadow
   &--game-landing
     [data-theme="gradient"] &
       background-color: transparent
@@ -66,3 +81,11 @@
       max-width: 100%
       object-fit: cover
       +coverdiv
+
+[data-anim="title-wrapper"]
+  position: relative
+  overflow: hidden
+
+[data-anim="title"]
+  position: relative
+  display: inline-block

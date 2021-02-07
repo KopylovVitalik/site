@@ -69,4 +69,6 @@ import SEO from "../components/seo";
 
 const ContentfulBlog = () => "hello";
 
+
+
 export default ContentfulBlog;

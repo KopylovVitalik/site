@@ -37,8 +37,9 @@ const ProjectCard = ({ project, category }) => {
         card.current,
         {
           ...style,
-          duration: 1.1,
-          ease: "power2.in"
+          duration: 0.9,
+          delay: 0.2,
+          ease: "power4.out",
         },
         "-=0.1"
       )
@@ -62,7 +63,26 @@ const ProjectCard = ({ project, category }) => {
 
   function enterSinglePortfolio(entry, node) {
     const image = node.querySelector(".single-project-image");
-    // gsap.timeline().to(image, { opacity: 1, duration: 0.001 });
+    const title = node.querySelectorAll("[data-anim='title']");
+    const content = node.querySelectorAll("p, h2, h3, h4, h5, h6");
+    const btn = node.querySelectorAll(".btn");
+
+    gsap.set(title, { yPercent: 100 });
+    gsap.set(content, { opacity: 0, y: 20 });
+    gsap.set(btn, { opacity: 0 });
+
+    gsap
+      .timeline()
+      .to(image, { opacity: 1, duration: 0.001 })
+      .to(title, {
+        // opacity: 1,
+        yPercent: 0,
+        // stagger: { amount: 1, ease: "power1.out" },
+        duration: 0.5,
+        ease: "power1.out"
+      })
+      .to(content, { opacity: 1, y: 0, stagger: 0.1, ease: "power1.out" }, "-=0.2")
+      .to(btn, { opacity: 1, ease: "power1.out", duration: 0.4 });
   }
 
   return (
@@ -76,7 +96,7 @@ const ProjectCard = ({ project, category }) => {
       </div>
       <div className="project-card__inner">
         <header className="project-card__header">
-          <h3 className="is-size-4 project-card__title">{project.node.name}</h3>
+          <h3 className="project-card__title card-title">{project.node.name}</h3>
         </header>
         <div className="project-card__content">
           <div className="content">

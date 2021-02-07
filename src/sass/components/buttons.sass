@@ -7,11 +7,16 @@
   position: relative
   border: none
   cursor: pointer
+  text-decoration: none;
   [data-theme="light"] &,
   [data-theme="dark"] &
     border-radius: 0
   [data-theme="gradient"] &
     border-radius: 50px 
+  [data-theme="neuromorphic"] &
+    box-shadow: $neuroInnerShadow
+    border-radius: 50px 
+    background: #c6d7e0
   +mobile 
     font-size: 12px
   &:after,
@@ -72,12 +77,15 @@
   // &.is-active
   //   background: $blueGrad
   &--toggler
-    min-width: 140px
+    min-width: 160px
   &__text 
     position: relative
     z-index: 15
     color: $accentColor
     background-color: transparent
+    text-decoration: none
+    [data-theme="neuromorphic"] &
+      color: $white
     [data-theme="gradient"] & 
       +textBG
       background-image: linear-gradient(to left, $accentColor, $accentColor)

@@ -1,5 +1,6 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
+import SEO from "../components/seo";
 
 export const query = graphql`
   query($slug: String!) {
@@ -7,26 +8,45 @@ export const query = graphql`
       frontmatter {
         title
         date
+        thumbnail {
+          childImageSharp {
+            fluid {
+              originalImg
+            }
+          }
+        }
       }
       html
     }
   }
-`
+`;
 
 const Post = props => (
   <>
-    <div className="container">
-      <div className="notification">
-        <h2>{props.data.markdownRemark.frontmatter.title}</h2>
-        <p>{props.data.markdownRemark.frontmatter.date}</p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: props.data.markdownRemark.html,
-          }}
-        ></div>
+    <SEO title={props.data.markdownRemark.frontmatter.title} />
+    <section className="single-post-page">
+      <div className="single-post-page__inner inner">
+        <div className="single-post-page__header">
+          <div className="single-post-page__title">
+            <h1 className="page-title">
+              {props.data.markdownRemark.frontmatter.title}
+            </h1>
+          </div>
+          <div className="single-post-page__date">
+            {props.data.markdownRemark.frontmatter.date}
+          </div>
+        </div>
+        <div className="single-post-page__content">
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: props.data.markdownRemark.html,
+            }}
+          />
+        </div>
       </div>
-    </div>
+    </section>
   </>
-)
+);
 
-export default Post
+export default Post;

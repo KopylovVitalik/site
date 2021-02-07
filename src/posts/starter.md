@@ -1,6 +1,7 @@
 ---
 title: "Про цей блог"
 date: "2020-01-09"
+thumbnail: ../images/blogs/about/about-thumb.jpg
 ---
 
 # Блог фронт-енд розробника

@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
   // const [theme, changeTheme] = useState("light")
   const globalContext = React.useContext(GlobalContext);
   const { theme } = globalContext;
-  // const theme = "gradient"
+  
   return (
     <>
       <div className="page-wrapper" data-theme={theme}>
