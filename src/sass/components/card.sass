@@ -110,9 +110,14 @@
 
 .post-card
   padding: 8px
+  transition: box-shadow $tr
   [data-theme="light"] &
     border-radius: 0
-    background-color: $mainColor 
+    background-color: $white
+    // box-shadow: 0px 2px 44px rgba(0, 0, 0, 0.2)
+    box-shadow: 0px 2px 44px rgba(0, 0, 0, 0.05)
+    &:hover
+      box-shadow: 0px 2px 44px rgba(0, 0, 0, 0.2)
   [data-theme="dark"] &
     border-radius: 0
   [data-theme="gradient"] &
