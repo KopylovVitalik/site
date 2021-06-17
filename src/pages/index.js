@@ -29,7 +29,7 @@ const IndexPage = () => (
             </div>
           </div>
           <div className="front-page__right">
-            <img src={photo} alt="Vitalii Koylov" />
+            <img src={photo} alt="Vitalii Kopylov" />
           </div>
         </div>
       </div>
