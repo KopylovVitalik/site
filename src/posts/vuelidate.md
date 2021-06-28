@@ -86,6 +86,9 @@ export default {
 
 New Text For test Ammend
 
+<<<<<<< HEAD
 Another text for test
 
+=======
+>>>>>>> 543d4415bbb3a2c7c9746babbee560e63862831b
 ![Turtle](../images/turtle.jpg)
