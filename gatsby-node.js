@@ -20,7 +20,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const projectTemplate = path.resolve(`src/templates/project.js`);
+  const projectTemplate = path.resolve(`src/templates/project.jsx`);
   const res = await graphql(`
     query {
       allContentfulProject {
@@ -52,30 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Blog Depracated
-  // const blogTemplate = path.resolve(`src/templates/blog.js`);
-  // const blog = await graphql(`
-  //   query {
-  //     allContentfulBlogPost {
-  //       edges {
-  //         node {
-  //           slug
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-  // blog.data.allContentfulBlogPost.edges.forEach(element => {
-  //   createPage({
-  //     component: blogTemplate,
-  //     path: `/blog/${element.node.slug}`,
-  //     context: {
-  //       slug: element.node.slug,
-  //     },
-  //   });
-  // });
-
-  const postTemplate = path.resolve(`src/templates/post.js`);
+  const postTemplate = path.resolve(`src/templates/post.jsx`);
   const post = await graphql(`
     query {
       allMarkdownRemark {
@@ -100,7 +77,43 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+exports.onCreateWebpackConfig = ({ stage, loaders, actions, getConfig }) => {
+  // const config = getConfig();
+  // config.module.rules = [
+  //   ...config.module.rules.filter(
+  //     rule => String(rule.test) !== String(/\.jsx?$/)
+  //   ),
+  //   {
+  //     ...loaders.js(),
+  //     test: /\.jsx?$/,
+  //     exclude: /node_modules\/(?!three)/,
+  //   },
+  // ];
+  // config.resolve = {
+  //   alias: {
+  //     "@images": path.resolve(__dirname, "src/images"),
+  //   },
+  //   extensions: [".js", ".jsx"],
+  // };
+  // actions.replaceWebpackConfig(config);
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "@images": path.resolve(__dirname, "src/images"),
+        "@components": path.resolve(__dirname, "src/components"),
+      },
+      extensions: [".js", ".jsx"],
+    },
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.jsx?$/,
+    //       exclude: /node_modules\/(?!three)/,
+    //       loader: "babel-loader",
+    //     },
+    //   ],
+    // },
+  });
   if (stage === "build-html") {
     actions.setWebpackConfig({
       module: {

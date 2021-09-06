@@ -6,11 +6,16 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@react-three/drei": "^7.5.0",
+    "@react-three/fiber": "^7.0.6",
     "animejs": "^3.2.1",
+    "babel-plugin-glsl": "^1.0.0",
+    "babel-preset-gatsby": "^1.12.0",
     "bulma": "^0.8.2",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.30.1",
+    "gatsby": "^2.32.13",
     "gatsby-image": "^2.9.0",
+    "gatsby-plugin-compile-es6-packages": "^2.1.1",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-layout": "^1.8.0",
     "gatsby-plugin-manifest": "^2.10.0",
@@ -27,6 +32,8 @@
     "gatsby-source-filesystem": "^2.9.0",
     "gatsby-transformer-remark": "^2.14.0",
     "gatsby-transformer-sharp": "^2.10.0",
+    "glsl-noise": "0.0.0",
+    "glslify": "^7.1.1",
     "gsap": "^3.5.1",
     "isotope-layout": "^3.0.6",
     "lodash": "^4.17.20",
@@ -39,7 +46,7 @@
     "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1",
     "react-three-fiber": "^3.0.17",
-    "three": "0.111.0"
+    "three": "^0.132.2"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",

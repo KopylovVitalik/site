@@ -2,7 +2,7 @@
   font-family: $titleFont
   font-weight: 800
   display: inline-block
-  font-size: 100px
+  font-size: 80px
   [data-theme="light"] &
     color: $dark
   [data-theme="dark"] &
@@ -33,7 +33,7 @@
     color: $white
   [data-theme="gradient"] &
     color: $white
-  p 
+  p
     font-family: $mainFont
     font-weight: 400
     font-size: 16px
@@ -44,7 +44,7 @@
   h3,
   h4,
   h5,
-  h6 
+  h6
     font-family: $titleFont
     font-size: 22px
     font-weight: 800
@@ -53,13 +53,13 @@
     margin-top: 1em
   ul,
   ol,
-  blockquote 
+  blockquote
     padding-left: 40px
     margin: 1em 0
   ul
     li
-      position: relative;
-      &:before 
+      position: relative
+      &:before
         content: ""
         display: inline-block
         +circle(4)
@@ -69,21 +69,20 @@
         margin-top: -3px
   ol
     counter-reset: list
-    li 
-      &:before 
-        content: counter(list) ". "
+    li
+      &:before
+        content: counter(list) "."
         counter-increment: list
         padding-right: 4px
         font-family: inherit
         font-weight: 700
         color: var(--content-accent)
-  ol, ul 
-    li 
+  ol, ul
+    li
       &:not(:last-child)
-        margin-bottom: 0.5em;
-      & > p 
+        margin-bottom: 0.5em
+      & > p
         display: inline-block
-
 
 //     a {
 //         color: #a174ff;
@@ -152,7 +151,7 @@
 //         max-width: 100%;
 //         margin-top: 0;
 //     }
-   
+
 //     ul,
 //     ol {
 //         li {
@@ -162,7 +161,7 @@
 //         }
 //     }
 //  
-  
+
 //     table {
 //         border-collapse: collapse;
 //         border-spacing: 0;

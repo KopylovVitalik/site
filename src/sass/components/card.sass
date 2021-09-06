@@ -15,10 +15,10 @@
   position: relative
   overflow: hidden
   padding-bottom: 60%
-  text-decoration: none;
+  text-decoration: none
   [data-theme="light"] &
     border-radius: 0
-    background-color: $mainColor 
+    background-color: $mainColor
   [data-theme="dark"] &
     border-radius: 0
   [data-theme="gradient"] &
@@ -27,7 +27,7 @@
     border-radius: 20px
     box-shadow: $neuroShadow
   &:hover
-    .project-card__bg 
+    .project-card__bg
       transform: scale(1.1)
   &--game-landing
     [data-theme="gradient"] &
@@ -41,7 +41,7 @@
     [data-theme="gradient"] &
       background-color: transparent
       background-image: $greenGrad
-  &--css 
+  &--css
     [data-theme="gradient"] &
       background-color: transparent
       background-image: $lightBlueGrad
@@ -131,8 +131,8 @@
     flex-direction: column
     height: 100%
   &__image
-    padding-bottom: 50%;
-    position: relative;
+    padding-bottom: 50%
+    position: relative
     // margin-top: -8px;
     // margin-left: -8px
     // margin-right: -8px;
@@ -140,17 +140,25 @@
     [data-theme="neuromorphic"] &,
     [data-theme="gradient"] &
       border-radius: 12px 12px 0 0
-    & > img
+    & > img,
+    & > .gatsby-image-wrapper
       +coverdiv
       object-fit: cover
+      position: absolute !important
   &__text
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    flex-grow: 1
+    display: flex
+    flex-direction: column
     padding: 20px
     background: $white
     [data-theme="neuromorphic"] &,
     [data-theme="gradient"] &
       border-radius: 0 0 12px 12px
-  &__btn 
-    margin-top: auto;
+  &__btn
+    margin-top: auto
+
+.e-card
+  &__image
+    position: relative
+    width: 300px
+    height: 500px
