@@ -1,5 +1,8 @@
-.header 
-  position: relative
+.header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
   z-index: 10
   padding: 12px 0
   background-color: var(--header-bg, $white)
@@ -14,6 +17,7 @@
   &__theme-toggler
     min-width: 100px
     text-align: right
+    margin-left: 100px
 
 .main-menu
   &__list
@@ -22,12 +26,13 @@
     padding: 0 10px
   &__link
     font-family: $titleFont
-    font-size: 18px
+    font-size: 24px
     color: var(--header-link-color)
     text-decoration: none
+    letter-spacing: 0.05em
 
 .logo
-  svg 
+  svg
     height: 80px
     width: auto
     path

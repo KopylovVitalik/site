@@ -1,8 +1,9 @@
 import * as THREE from "three";
 import React, { useRef, Suspense } from "react";
 import { Canvas, extend, useFrame, useLoader } from "@react-three/fiber";
-import { shaderMaterial, Text } from "@react-three/drei";
+import { shaderMaterial } from "@react-three/drei";
 import glsl from "babel-plugin-glsl/macro";
+// import PropTypes from "prop-types";
 
 const WaveShaderMaterial = shaderMaterial(
   // Uniform
@@ -11,9 +12,11 @@ const WaveShaderMaterial = shaderMaterial(
     uColor: new THREE.Color(0.0, 0.0, 0.0),
     uTexture: new THREE.Texture(),
   },
+  // { transparent: true },
   // Vertex Shader
   glsl`
     precision mediump float;
+    // precision highp float;
     varying vec2 vUv;
     varying float vWave;
     uniform float uTime;
@@ -21,11 +24,12 @@ const WaveShaderMaterial = shaderMaterial(
     void main() {
       vUv = uv;
       vec3 pos = position;
-      float noiseFreq = 2.0;
-      float noiseAmp = 0.4;
+      float noiseFreq = 1.3;
+      float noiseAmp = 0.2;
       vec3 noisePos = vec3(pos.x * noiseFreq + uTime, pos.y, pos.z);
       pos.z += snoise3(noisePos) * noiseAmp;
       vWave = pos.z;
+      // if (uWave == 0.0) { vec3 pos = position; }
       gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);  
     }
   `,
@@ -37,9 +41,17 @@ const WaveShaderMaterial = shaderMaterial(
     uniform sampler2D uTexture;
     varying vec2 vUv;
     varying float vWave;
+    
     void main() {
-      float wave = vWave * 0.03;
-      vec3 texture = texture2D(uTexture, vUv + wave).rgb;
+      // float wave = vWave * 0.8;
+      float t = texture2D(uTexture, vUv).a;
+      if (t < 0.01) { discard; }
+      // if (t < 0.01) { 
+      //   gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0); 
+      //   return;
+      // }
+      // vec3 texture = texture2D(uTexture, vUv + wave).rgb;
+      vec3 texture = texture2D(uTexture, vUv).rgb;
       gl_FragColor = vec4(texture, 1.0); 
     }
   `
@@ -53,20 +65,23 @@ const Wave = ({ image }) => {
 
   const [img] = useLoader(THREE.TextureLoader, [image]);
 
+  // material.transparent = true;
+
   return (
     <mesh>
-      <planeBufferGeometry args={[0.8, 1, 16, 16]} />
+      <planeBufferGeometry args={[0.6, 1, 16, 16]} />
       <waveShaderMaterial
-        uColor={"hotpink"}
         ref={ref}
+        uColor={"hotpink"}
         uTexture={img}
         transparent={true}
+        depthTest={false}
       />
     </mesh>
   );
 };
 
-const ExperienceImage = ({ image }) => {
+const ExperienceImage = ({ image, wave }) => {
   return (
     <Canvas
       camera={{ fov: 12, position: [0, 0, 5] }}
@@ -74,10 +89,13 @@ const ExperienceImage = ({ image }) => {
     >
       <Suspense fallback={null}>
         <Wave image={image} />
-        <Text>Hello</Text>
       </Suspense>
     </Canvas>
   );
+};
+
+ExperienceImage.defaultProps = {
+  wave: false,
 };
 
 export default ExperienceImage;

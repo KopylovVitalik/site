@@ -26,6 +26,10 @@
     background-color: transparent
     +textBG
     background-image: $lightBlueGrad
+  &--white
+    [data-theme="gradient"] &
+      background: none
+      -webkit-text-fill-color: var(--header-link-color)
 
 .content,
 .content *
