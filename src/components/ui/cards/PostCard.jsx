@@ -2,9 +2,9 @@ import React from "react";
 import MenuLink from "../../menu-link";
 import Img from "gatsby-image";
 
-const PostCard = ({ slug, title, image, excerpt }) => {
+const PostCard = ({ slug, title, image, excerpt, modifier }) => {
   return (
-    <div className="post-card">
+    <div className={`post-card ${modifier}`}>
       <div className="post-card__inner">
         <div className="post-card__image">
           <Img fluid={image} alt={title} />
@@ -14,7 +14,7 @@ const PostCard = ({ slug, title, image, excerpt }) => {
           <div className="post-card__excerpt">{excerpt}</div>
           <div className="post-card__btn">
             <MenuLink className={`btn`} to={`/post/${slug}`} direction="top">
-              <span className="btn__text">More about</span>
+              <span className="btn__text">Read more</span>
             </MenuLink>
           </div>
         </div>

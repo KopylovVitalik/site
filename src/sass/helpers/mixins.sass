@@ -7,7 +7,7 @@
 
 =textBG
   -webkit-text-fill-color: transparent
-  -webkit-background-clip: text 
+  -webkit-background-clip: text
 
 =fsize($val)
   flex: 0 0 $val
@@ -37,7 +37,7 @@
   border-radius: 50%
 
 =r($width)
-  @media only screen and (max-width: $width+ "px")
+  @media only screen and (max-width: $width + "px")
     @content
 
 =tablet
@@ -47,4 +47,3 @@
 =mobile
   +r(767)
     @content
-

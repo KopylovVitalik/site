@@ -128,10 +128,12 @@
     box-shadow: $neuroShadow
   &__inner
     display: flex
-    flex-direction: column
+    // flex-direction: column
     height: 100%
   &__image
-    padding-bottom: 50%
+    // padding-bottom: 50%
+    // height: 200px
+    +fsize(300px)
     position: relative
     // margin-top: -8px;
     // margin-left: -8px
@@ -139,7 +141,7 @@
     overflow: hidden
     [data-theme="neuromorphic"] &,
     [data-theme="gradient"] &
-      border-radius: 12px 12px 0 0
+      border-radius: 12px 0 0 12px
     & > img,
     & > .gatsby-image-wrapper
       +coverdiv
@@ -149,11 +151,11 @@
     flex-grow: 1
     display: flex
     flex-direction: column
-    padding: 20px
+    padding: 30px 20px 30px 40px
     background: $white
     [data-theme="neuromorphic"] &,
     [data-theme="gradient"] &
-      border-radius: 0 0 12px 12px
+      border-radius: 0 12px 12px 0
   &__btn
     margin-top: auto
 
@@ -166,6 +168,19 @@
     height: 500px
   &__text
     margin-left: 150px
+    color: var(--text-color)
+    font-size: 16px
+    line-height: 1.5
+  &__timeline
+    font-family: $titleFont
+    font-weight: 700
+    padding: 30px 0
+  &__descr
+    max-width: 60ch
+    font-family: $mainFont
+    p
+      &:not(:last-child)
+        margin-bottom: 0.25em
 
 .skills-card
   display: flex

@@ -12,7 +12,7 @@ const HeroSection = () => {
           <div className="hero-section__text content">
             <p>I'm Vitalii Kopylov, front-end developer.</p>
             <p>
-              I have 2+ years of experience in web development with the
+              I have 3+ years of experience in web development with the
               following technology stacks:
               <ul>
                 <li>HTML Templating - Nunjucks</li>

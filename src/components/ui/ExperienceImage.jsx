@@ -24,8 +24,8 @@ const WaveShaderMaterial = shaderMaterial(
     void main() {
       vUv = uv;
       vec3 pos = position;
-      float noiseFreq = 1.3;
-      float noiseAmp = 0.2;
+      float noiseFreq = 1.5;
+      float noiseAmp = 0.4;
       vec3 noisePos = vec3(pos.x * noiseFreq + uTime, pos.y, pos.z);
       pos.z += snoise3(noisePos) * noiseAmp;
       vWave = pos.z;

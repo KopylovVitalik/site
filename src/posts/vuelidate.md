@@ -1,5 +1,5 @@
 ---
-title: "Vuelidate в компонентах"
+title: "Using Vuelidate in components"
 date: "2021-06-17"
 thumbnail: ../images/blogs/vuelidate/vuelidate-2.jpeg
 ---
@@ -90,5 +90,6 @@ New Text For test Ammend
 Another text for test
 
 =======
->>>>>>> 543d4415bbb3a2c7c9746babbee560e63862831b
-![Turtle](../images/turtle.jpg)
+
+> > > > > > > 543d4415bbb3a2c7c9746babbee560e63862831b
+> > > > > > > ![Turtle](../images/turtle.jpg)

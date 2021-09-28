@@ -31,6 +31,7 @@ const Layout = ({ children }) => {
         <Footer />
         {theme === "gradient" && (
           <ul className="gradient-bg">
+            {/* <li></li>
             <li></li>
             <li></li>
             <li></li>
@@ -47,8 +48,7 @@ const Layout = ({ children }) => {
             <li></li>
             <li></li>
             <li></li>
-            <li></li>
-            <li></li>
+            <li></li> */}
           </ul>
         )}
       </div>

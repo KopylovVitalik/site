@@ -59,6 +59,7 @@ const PostsPage = () => {
                       key={i}
                       slug={post.node.fields.slug}
                       date={post.node.frontmatter.date}
+                      modifier={i === 0 ? "big" : ""}
                     />
                   </div>
                 );
