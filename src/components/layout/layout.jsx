@@ -6,7 +6,7 @@ import Footer from "./TheFooter";
 import GlobalContext from "../../context/globalContext";
 import Canvas from "../canvas";
 
-import "../../sass/style.sass";
+import "../../sass/style.scss";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
