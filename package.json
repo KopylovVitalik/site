@@ -25,7 +25,7 @@
     "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-source-contentful": "^2.3.56",
     "gatsby-source-filesystem": "^2.9.0",
-    "gatsby-transformer-remark": "^2.14.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.10.0",
     "gsap": "^3.5.1",
     "isotope-layout": "^3.0.6",
